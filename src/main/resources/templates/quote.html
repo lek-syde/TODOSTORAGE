@@ -1,0 +1,488 @@
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+            <meta name='robots' content='nofollow'>
+        <meta name='robots' content='noindex'>
+        <title>Access Self Storage | Your Quote</title>
+        <link rel="canonical" href="https://www.accessstorage.com/storage/your-quote" />
+
+ <link rel="stylesheet" type="text/css" th:href="@{/dist/css/main.css}">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,400i,500,600,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/access.ico" />
+
+    <script src="https://assets.what3words.com/sdk/v3/what3words.js"></script>
+
+
+
+</head>
+<body class="process-layout">
+
+
+    <div class="storage-quote">
+        <div class="storage-quote__header">
+
+                <div itemscope itemtype="http://schema.org/Brand" class="storage-quote__header-logo">
+                    <a href="/">
+                            <img itemprop="logo" src="https://www.accessstorage.com/-/media/images/brand/access-brand-logo-final.png" alt="Access brand logo" class="storage-quote__header-logo-img" />
+                    </a>
+                </div>
+            <div class="process-header">
+                <div class="storage-quote__progress-indicator">
+    <ul class="storage-quote__progress-list">
+        <li class="storage-quote__progress-list-item">
+            <div class="storage-quote__progress-stage storage-quote__progress-stage--complete animated fadeIn">
+                <span class="storage-quote__progress-stage-number">1</span>
+                <img class="storage-quote__progress-stage-icon" src="https://www.accessstorage.com/-/media/images/icons/progress-indicator/tick.svg">
+            </div>
+            <div class="storage-quote__progress-title storage-quote__progress-title--complete animated fadeIn">Location</div>
+        </li>
+        <li class="storage-quote__progress-list-item">
+            <div class="storage-quote__progress-stage storage-quote__progress-stage--complete animated fadeIn">
+                <span class="storage-quote__progress-stage-number">2</span>
+                <img class="storage-quote__progress-stage-icon" src="https://www.accessstorage.com/-/media/images/icons/progress-indicator/tick.svg">
+            </div>
+            <div class="storage-quote__progress-title storage-quote__progress-title--complete animated fadeIn">Size</div>
+        </li>
+        <li class="storage-quote__progress-list-item">
+            <div class="storage-quote__progress-stage storage-quote__progress-stage--complete animated fadeIn">
+                <span class="storage-quote__progress-stage-number">3</span>
+                <img class="storage-quote__progress-stage-icon" src="https://www.accessstorage.com/-/media/images/icons/progress-indicator/tick.svg">
+            </div>
+            <div class="storage-quote__progress-title storage-quote__progress-title--complete animated fadeIn">Details</div>
+        </li>
+        <li class="storage-quote__progress-list-item">
+            <div class="storage-quote__progress-stage storage-quote__progress-stage--active animated fadeIn">
+                <span class="storage-quote__progress-stage-number">4</span>
+                <img class="storage-quote__progress-stage-icon" src="https://www.accessstorage.com/-/media/images/icons/progress-indicator/document.svg">
+            </div>
+            <div class="storage-quote__progress-title storage-quote__progress-title--active animated fadeIn">Quote</div>
+        </li>
+    </ul>
+</div>
+
+            </div>
+            <div class="process-header__close">
+                <a href="https://www.accessstorage.com/" class="process-header__cancel-link">
+    <span class="process-header__cancel-link-copy">Cancel Quote</span>
+</a>
+
+            </div>
+        </div>
+        <div class="process-wrapper">
+            
+    <div id="storage-quote-price" data-national-storage="False"
+         data-has-quotes="True">
+
+        <!-- Loading.. start-->
+<div v-show="isLoad" class="storage-quote-price__loader">
+    <div class="storage-quote-price__loader-description">
+        Please wait while we calculate your quote
+    </div>
+    <div class="storage-quote-price__loader-animation">
+        <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+        <path fill="#13B5EA" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+        <animateTransform attributeName="transform"
+                          attributeType="XML"
+                          type="rotate"
+                          dur="1s"
+                          from="0 50 50"
+                          to="360 50 50"
+                          repeatCount="indefinite" />
+              </path>
+            </svg>
+    </div>
+</div>
+<!-- Loading.. end -->
+
+        <div v-show="!isLoad" v-cloak>
+
+            <div class="storage-quote-price" v-if="!showNationalStorageMessage">
+
+                <!-- Personalised Title -->
+<div class="storage-quote-price__title">
+        <h1>Thanks wne, here&#39;s your quote</h1>
+        <div class="storage-quote-price__sub-title" v-if="showExtrasPanel">
+            We can help you protect your valuables
+        </div>
+</div>
+<!-- Personalised Title End -->
+
+                <div class="storage-quote-price-panel" v-if="!showNationalStorageMessage">
+    <transition enter-active-class="animated.slow fadeIn" leave-active-class="animated.fast fadeOut" mode="in-out">
+        <div class="storage-quote-price__details" v-show="!showExtrasPanel">
+
+            <!-- Tab Area -->
+            <div class="" id="">
+                <!-- Time Toggler -->
+                <div id="tab-switcher" v-show="!showNonStandardSizeQuote" class="storage-quote-price__tab-switcher">
+                    <span id="weekly-quote-title" class="tab__link" v-on:click="showWeeklyPrice" :class="{ 'tab__link--active' : toggleWeeklyPrice }">Weekly price</span>
+                    <span id="monthly-quote-title" class="tab__link" v-on:click="showMonthlyPrice" :class="{ 'tab__link--active' : toggleMonthlyPrice }">Monthly price</span>
+                </div>
+                <!-- Time Toggler End -->
+                <!-- Tab Panel 1 -->
+                <div class="tab-panel" id="tab-panel-1" v-show="toggleWeeklyPrice">
+                    <div class="storage-quote-price__details-summary">
+                        <div v-show="showLoadingSpinner" class="storage-quote-price__details-loader pulse"><svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve"><path fill="#13B5EA" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50" transform="rotate(269.435 50 50)"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform></path></svg> </div>
+                        <div v-show="!showNonStandardSizeQuote && !showLoadingSpinner" class="storage-quote-price__details-summary-price animated fadeIn">{{ currentWeeklyQuote }} <span class="storage-quote-price__details-summary-text">per week, billed monthly</span></div>
+                        <div v-show="showNonStandardSizeQuote && !showLoadingSpinner" class="storage-quote-price__details-non-standard animated fadeIn">&#163;n/a</div>
+                        <div v-show="!showNonStandardSizeQuote && !showLoadingSpinner" class="storage-quote-price__details-summary-description animated fadeIn">{{ mainDiscountPerWeekDescription }}</div>
+                        <div id="non-standard-quote-text" class="storage-quote-price__details-non-standard-text animated fadeIn" v-html="nonStandardSizeSupportingText" v-show="showNonStandardSizeQuote && showUpgradeOption" data-non-standard-size-upgrade-text="Limited+availability+at+Access+Self+Storage+Stevenage+for+this+size.+Alternatively+you+can+upgrade+to+an+availabile+%3cstrong%3e%5bUnit+Size%5d+sq+ft+for+%5bWeekly+Price%5d%3c%2fstrong%3e.+Upgrade+now.">
+                        </div>
+                    </div>
+                </div>
+                <!-- Tab Panel 1 End -->
+                <!-- Tab Panel 2-->
+                <div class="tab-panel" id="tab-panel-2" v-show="toggleMonthlyPrice">
+                    <div class="storage-quote-price__details-summary">
+                        <div class="storage-quote-price__details-summary-price animated fadeIn">{{ currentMonthlyQuote }} <span class="storage-quote-price__details-summary-text">per month, billed monthly</span></div>
+                        <div class="storage-quote-price__details-summary-description" v-html="mainDiscountPerMonthDescription"></div>
+                    </div>
+                </div>
+                <!-- Tab Panel 2 End -->
+
+            </div>
+            <!-- Tab Area End -->
+
+            <div class="storage-quote-price__modify">
+
+                <!-- Location switcher -->
+                <div class="storage-quote-price__modify-location">
+
+                    <div class="storage-quote-price__modify-location-current-store">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path fill="#13B5EA" d="M11.6721124,22 C7.22403746,17.2711566 5,12.8285274 5,8.67211238 C5,4.98720646 7.98720646,2 11.6721124,2 C15.3570183,2 18.3442248,4.98720646 18.3442248,8.67211238 C18.3442248,12.8285274 16.1201873,17.2711566 11.6721124,22 Z M11.6721124,10.8961498 C12.9004144,10.8961498 13.8961498,9.90041435 13.8961498,8.67211238 C13.8961498,7.44381041 12.9004144,6.44807492 11.6721124,6.44807492 C10.4438104,6.44807492 9.44807492,7.44381041 9.44807492,8.67211238 C9.44807492,9.90041435 10.4438104,10.8961498 11.6721124,10.8961498 Z"/>
+</svg>
+
+                        Access Self Storage Stevenage
+                        <a class="storage-quote-price__modify-location-current-store-link" href="https://www.accessstorage.com/storage">Change</a>
+                    </div>
+
+                </div>
+                <!-- Location switcher End -->
+                <!-- Size Unit Switcher -->
+                <div class="storage-quote-price__modify-size">
+                    <div class="storage-quote-price__modify-size-details">
+                        <div class="storage-quote-price__modify-size-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path fill="#13B5EA" d="M12,4 L7.351,7.382 L12,10.764 L16.65,7.382 L12,4 Z M13.7,12 L18.35,15.382 L23,12 L18.35,8.619 L13.7,12 Z M1,12 L5.65,15.382 L10.3,12 L5.65,8.619 L1,12 Z M7.351,16.618 L12,20 L16.65,16.618 L12,13.237 L7.351,16.618 Z"/>
+</svg>
+</div>
+                        <div class="storage-quote-price__modify-size-unit-size">
+                            <span class="storage-quote-price__modify-size-unit-size--bold">{{ currentUnitSize }}</span> sq.ft.
+                        </div>
+                    </div>
+                    <div class="storage-quote-price__modify-size-buttons">
+                        <button class="storage-quote-price__modify-size-button" v-on:click="decreaseUnitSize" :disabled="!allowSmallerQuote"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <rect id="minus-a" width="12" height="2" x="6" y="11"/>
+  </defs>
+  <use fill="#13B5EA" xlink:href="#minus-a"/>
+</svg>
+</button>
+                        <button class="storage-quote-price__modify-size-button" v-on:click="increaseUnitSize" :disabled="!allowLargerQuote"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <polygon fill="#13B5EA" points="11 11 11 6 13 6 13 11 18 11 18 13 13 13 13 18 11 18 11 13 6 13 6 11"/>
+</svg>
+</button>
+                    </div>
+                    <!-- Size Unit Switcher End -->
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="storage-quote-price__extras" v-show="!showExtrasPanel">
+            <div class="storage-quote-price__extras-title">
+                You&#39;ll also need
+            </div>
+
+            <div class="storage-quote-price__extras-item storage-quote-price__extras-padlock" v-on:click="showExtrasPanel = !showExtrasPanel">
+                <div class="storage-quote-price__extras-item-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#2f3245" d="M9,12 L9,7 C9,5.346 10.346,4 12,4 C13.654,4 15,5.346 15,7 L15,12 L9,12 Z M17,12 L17,7 C17,4.243 14.757,2 12,2 C9.243,2 7,4.243 7,7 L7,12 L5,12 L5,22 L19,22 L19,12 L17,12 Z" />
+                    </svg>
+                </div>
+                <div class="storage-quote-price__extras-item-text">
+                    A padlock
+                    <span class="storage-quote-price__extras-item-text-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <polygon fill="#2f3245" points="13 7 11.586 8.414 14.172 11 6 11 6 13 14.172 13 11.586 15.586 13 17 17.999 11.999"></polygon>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <div class="storage-quote-price__extras-item storage-quote-price__extras-insurance" v-on:click="showExtrasPanel = !showExtrasPanel">
+                <div class="storage-quote-price__extras-item-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#2f3245" d="M12,6 L12,2 L5,2 L5,22 L19,22 L19,9 L15,9 C13.346,9 12,7.654 12,6 M14,6 L14,2 L19,7 L15,7 C14.449,7 14,6.551 14,6" />
+                    </svg>
+                </div>
+                <div class="storage-quote-price__extras-item-text">
+                    Contents Insurance
+                    <span class="storage-quote-price__extras-item-text-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><polygon fill="#2f3245" points="13 7 11.586 8.414 14.172 11 6 11 6 13 14.172 13 11.586 15.586 13 17 17.999 11.999"></polygon></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </transition>
+
+    <transition enter-active-class="animated.fast fadeIn" leave-active-class="animated.fast fadeOut" mode="in-out">
+        <div class="storage-quote-price__extras" v-bind:class="{ 'storage-quote-price__extras--disabled' : showNonStandardSizeQuote }" v-show="!showExtrasPanel">
+
+            <div class="storage-quote-price__extras-title">
+                You&#39;ll also need
+            </div>
+
+            <div class="storage-quote-price__extras-item" v-on:click="showExtrasPanel = !showExtrasPanel">
+                <div class="storage-quote-price__extras-item-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#2f3245" d="M12,6 L12,2 L5,2 L5,22 L19,22 L19,9 L15,9 C13.346,9 12,7.654 12,6 M14,6 L14,2 L19,7 L15,7 C14.449,7 14,6.551 14,6" />
+                    </svg>
+                </div>
+                <div class="storage-quote-price__extras-item-text">Contents Insurance <svg width="24" height="24" viewBox="0 0 24 24"><polygon fill="#2f3245" points="13 7 11.586 8.414 14.172 11 6 11 6 13 14.172 13 11.586 15.586 13 17 17.999 11.999"></polygon></svg></div>
+            </div>
+
+            <div class="storage-quote-price__extras-item" v-on:click="showExtrasPanel = !showExtrasPanel">
+                <div class="storage-quote-price__extras-item-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#2f3245" d="M9,12 L9,7 C9,5.346 10.346,4 12,4 C13.654,4 15,5.346 15,7 L15,12 L9,12 Z M17,12 L17,7 C17,4.243 14.757,2 12,2 C9.243,2 7,4.243 7,7 L7,12 L5,12 L5,22 L19,22 L19,12 L17,12 Z" />
+                    </svg>
+                </div>
+                <div class="storage-quote-price__extras-item-text">A padlock <svg width="24" height="24" viewBox="0 0 24 24"><polygon fill="#2f3245" points="13 7 11.586 8.414 14.172 11 6 11 6 13 14.172 13 11.586 15.586 13 17 17.999 11.999"></polygon></svg></div>
+            </div>
+        </div>
+    </transition>
+
+    <!-- Extra Slide -->
+    <transition enter-active-class="animated.fast fadeIn" leave-active-class="animated.fast fadeOut" mode="out-in">
+        <div class="storage-quote-price__extra-panel" v-show="showExtrasPanel">
+            <div class="storage-quote-price__extra-panel-cta">
+                <a class="storage-quote-price__extras-btn" v-on:click="showExtrasPanel = !showExtrasPanel">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <polygon fill="#004b8d" points="13 7 11.586 8.414 14.172 11 6 11 6 13 14.172 13 11.586 15.586 13 17 17.999 11.999"></polygon>
+                    </svg>
+                </a>
+                <div class="storage-quote-price__extras-link">Back To Quote</div>
+            </div>
+            <div class="storage-quote-price__extra-panel-item">
+                <div class="storage-quote-price__extra-panel-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#004b8d" d="M12,6 L12,2 L5,2 L5,22 L19,22 L19,9 L15,9 C13.346,9 12,7.654 12,6 M14,6 L14,2 L19,7 L15,7 C14.449,7 14,6.551 14,6" />
+                    </svg>
+                </div>
+                <div class="storage-quote-price__extra-panel-title">Contents Insurance</div>
+                <div class="storage-quote-price__extra-panel-description"><p><span style="font-size: 13px;">Having self storage insurance is a requirement of renting a storage unit in the UK, and, accordingly, one that we require all of our customers to comply with. It is important not to under insure your goods.</span></p>
+<p><span style="font-size: 13px;">While you are under no obligation to use our own storage unit insurance, we can arrange insurance starting from as little as &pound;1.57 up to &pound;7 per &pound;1000 of cover per calendar month, dependent on the value of goods being stored. Cover starts at &pound;2,000 and&nbsp;you will need the correct total value for when you move in.</span></p></div>
+                <div class="storage-quote-price__extra-panel-cta">
+                    <a href="https://www.accessstorage.com/self-storage-insurance" class="storage-quote-price__extra-panel-cta-btn" v-on:click="gtmTracking('InsuranceClick')">Find out about insurance here</a>
+                </div>
+            </div>
+            <div class="storage-quote-price__extra-panel-item">
+                <div class="storage-quote-price__extra-panel-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#004b8d" d="M9,12 L9,7 C9,5.346 10.346,4 12,4 C13.654,4 15,5.346 15,7 L15,12 L9,12 Z M17,12 L17,7 C17,4.243 14.757,2 12,2 C9.243,2 7,4.243 7,7 L7,12 L5,12 L5,22 L19,22 L19,12 L17,12 Z" />
+                    </svg>
+                </div>
+                <div class="storage-quote-price__extra-panel-title">A padlock</div>
+                <div class="storage-quote-price__extra-panel-description">
+                    <p>We have all types of padlocks available to secure your storage unit. </p>
+<p>From a combination padlock that has a brass body with double locking mechanism and a 4 number key. We can also provide a large padlock with laminated steel body with 5 pin brass cylinder and hardened steel shackle.&nbsp;</p>
+<p>Our padlocks start from &pound;10 for the large padlock and &pound;14 for the combination padlock.</p>
+<p> Excellent value and ideal for securing your personal items.</p>
+<p> </p>
+                </div>     
+                <div class="storage-quote-price__extra-panel-cta">
+                    <a href="https://www.accessstorage.com/boxes-and-packaging" class="storage-quote-price__extra-panel-cta-btn" v-on:click="gtmTracking('PadlockClick')">Discover more</a>
+                </div>
+            </div>
+        </div>
+    </transition>
+    <!-- Extra slide end -->
+</div>
+
+                <!-- box storage offer-->
+<div v-show="showBoxStorageOffer" class="storage-quote-price__box-storage-offer-container" v-if="!showNationalStorageMessage">
+    <div class="storage-quote-price__box-storage-offer">
+        <div class="storage-quote-price__box-storage-offer-label">or</div>
+        <div class="storage-quote-price__box-storage-offer-content">
+            <div class="storage-quote-price__box-storage-offer-title">Collection and storage from</div>
+            <div class="storage-quote-price__box-storage-offer-price">&#163;3<span class="storage-quote-price__box-storage-offer-price-message"> per box, per week</span></div>
+            <div class="storage-quote-price__box-storage-offer-text">
+               Using our Box Storage for Me service. <a rel="noopener noreferrer" href="https://www.boxstorageforme.com/" target="_blank">Find out more</a>.
+            </div>
+        </div>
+    </div>
+</div>
+<!-- box storage offer end-->
+
+                <!--  Limited availability -->
+<div v-show="showLimitedAvailability" class="storage-quote-price__limited-availability">
+
+    <div class="storage-quote-price__limited-availability-content">
+        <div class="storage-quote-price__limited-availability-title">Limited availability for this size at Access Self Storage Stevenage</div>
+        <div class="storage-quote-price__limited-availability-text">It looks like this is a popular size! Speak to one of our advisers to check our availability and reserve a unit</div>
+        <div id="storage-quote-ref" class="storage-quote-price__limited-availability-reference" data-limited-availability-quote-text="Phone 01438 518 573 with quote reference #&lt;quoterefnumber&gt; ">
+            {{ quoteRef }}
+        </div>
+    </div>
+
+    <!-- Upgrade option -->
+    <div v-show="showUpgradeOption" class="storage-quote-price__upgrade-option">
+        <div id="limited-availability-upgrade-message" data-limited-availability-upgrade-price="%3cp%3eAlternatively+you+can+upgrade+to+an+available+%5bUnit+Size%5d+for+%3cstrong%3e%5bWeekly+Price%5d+per+week%3c%2fstrong%3e%3c%2fp%3e"
+             data-non-standard-size-upgrade-price="%3cp%3eAlternatively+you+can+upgrade+to+an+availabile%3c%2fp%3e%0a%3cp%3e%3cstrong%3e%5bUnit+Size%5d+sq+ft+for+%5bWeekly+Price%5d%3c%2fstrong%3e%3c%2fp%3e">
+            <div class="storage-quote-price__upgrade-standard-text" id="limited-availability-upgrade-price" v-show="showLimitedAvailability && !showNonStandardSizeQuote" v-html="standardUpgradeText"></div>
+            <div class="storage-quote-price__upgrade-non-standard-text" id="non-standard-size-upgrade-price" v-show="showLimitedAvailability && showNonStandardSizeQuote" v-html="nonStandardUpgradeText"></div>
+        </div>
+        <div class="storage-quote-price__limited-availability-btn">
+            <a href="#" v-on:click="upgradeQuote" class="storage-quote-price__upgrade-btn">Upgrade now <svg width="24" height="24" viewBox="0 0 24 24"><polygon fill="#13b5ea" points="13 7 11.586 8.414 14.172 11 6 11 6 13 14.172 13 11.586 15.586 13 17 17.999 11.999"></polygon></svg></a>
+        </div>
+    </div>
+    <!-- Upgrade option end -->
+
+</div>
+<!-- Limited availability End -->
+
+
+             
+
+                <!-- Next steps start -->
+<div class="storage-quote-price__ctas" v-show="showNextSteps && !showLimitedAvailability">
+    <div class="storage-quote-price__ctas-title">What next?</div>
+    <div class="storage-quote-price__ctas-content">
+        <div>
+            <a class="storage-quote-price__cta-reserve-btn" v-on:click="updateQuote" href="">
+             
+
+                    Reserve for ₦5,000
+
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <polygon fill="#13b5ea" points="13 7 11.586 8.414 14.172 11 6 11 6 13 14.172 13 11.586 15.586 13 17 17.999 11.999"></polygon>
+                    </svg>
+
+               
+            </a>
+            <div class="storage-quote-price__cta-text">
+                Ensure your unit will be available for 28 days with a &#163;10 refundable deposit.
+            </div>
+        </div>
+        <div>
+            <a class="storage-quote__update storage-quote-price__cta-confirm-btn" v-on:click="updateQuote" href="">
+
+
+                    Book now
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <polygon fill="#13b5ea" points="13 7 11.586 8.414 14.172 11 6 11 6 13 14.172 13 11.586 15.586 13 17 17.999 11.999"></polygon>
+                    </svg>
+
+
+            </a>
+            <div class="storage-quote-price__cta-text">
+                Ready to go? Book your unit online now and commit to this great price.
+            </div>
+        </div>
+    </div>
+   
+</div>
+<!-- Next steps end -->
+            </div>
+
+            <!-- national storage message -->
+<div class="national-storage-message" v-show="showNationalStorageMessage">
+    <h2 class="national-storage-message__title">Thanks for you enquiry</h2>
+    <div class="national-storage-message__content">
+        <p>Thanks for your enquiry. We have lots of options for national storage and warehouses.</p>
+<p>Please call us on 01438 518 573 so we can discuss your requirements</p>
+<p>Quote Reference: {{ onlineRef }}</p>
+<p style="text-align: center;"><span class="rte-button-solid"><a href="https://www.accessstorage.com/business-services">View the rest of our business services</a></span></p>
+    </div>
+</div>
+<!-- national storage message end -->
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+    <div class="storage-footer">
+        <div class="storage-footer__content">
+    <div class="storage-footer__copyright">
+
+
+<div itemscope itemtype="http://schema.org/Brand" class="brand-copyright">
+    &#169; Access Storage 2020
+</div>
+</div>
+    <div class="storage-footer__links">
+        <div class="storage-footer__links-legal">
+
+
+
+
+    <ul class="legal-links">
+                <li class="legal-links__item">
+                    <a href="https://www.accessstorage.com/about-us/terms-and-conditions" class="legal-links__item-link ">Terms and Conditions</a>
+                </li>
+                <li class="legal-links__item">
+                    <a href="https://www.accessstorage.com/about-us/privacy-policy" class="legal-links__item-link ">Privacy Policy</a>
+                </li>
+                <li class="legal-links__item">
+                    <a href="https://www.accessstorage.com/about-us/cookie-policy" class="legal-links__item-link ">Cookie Policy</a>
+                </li>
+                <li class="legal-links__item">
+                    <a href="javascript:if(GDPR &amp;amp;&amp;amp; GDPR.gdprBanner) { GDPR.gdprBanner.openCookies(); } else { console.log(&#39;GDPR module not found, cannot open cookie settings.&#39;); }" class="legal-links__item-link gdpr-manage-cookies">Cookie Settings</a>
+                </li>
+                <li class="legal-links__item">
+                    <a href="https://www.accessstorage.com/faqs" class="legal-links__item-link ">FAQs</a>
+                </li>
+    </ul>
+</div>
+        <div class="storage-footer__links-social">
+
+
+    <div class="social-links">
+            <a href="http://www.facebook.com/AccessStorage.co.uk" class="social-links__link" target="_blank">
+                    <img src="https://www.accessstorage.com/-/media/images/social-icons/facebook-white.svg" alt="Facebook icon" />
+            </a>
+            <a href="http://www.linkedin.com/company/access-self-storage" class="social-links__link" target="_blank">
+                    <img src="https://www.accessstorage.com/-/media/images/social-icons/linkedin-white.svg" alt="LinkedIn icon" />
+            </a>
+            <a href="http://www.twitter.com/access4news" class="social-links__link" target="_blank">
+                    <img src="https://www.accessstorage.com/-/media/images/social-icons/twitter-white.svg" alt="Twitter icon" />
+            </a>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+
+    </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGL6adJPcrDKkwmSLE3SZPcXeblOVV8wQ&amp;libraries=places,geometry&amp;region=GB"></script>
+    <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/snazzy-info-window@1.1.1/dist/snazzy-info-window.min.js'></script>
+    <script th:src="@{/dist/js/app.js}"></script>
+
+  
+  
+</body>
+</html>

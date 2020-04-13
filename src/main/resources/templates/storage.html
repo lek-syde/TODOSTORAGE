@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+            <title>TO-DO SELF STORAGE | QUOTE</title>
+        <link rel="canonical" href="https://www.accessstorage.com/storage" />
+
+    <link rel="stylesheet" type="text/css" href="dist/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,400i,500,600,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/access.ico" />
+
+    <script src="https://assets.what3words.com/sdk/v3/what3words.js"></script>
+
+
+<!-- Page hiding snippet (recommended) -->
+<style>.async-hide { opacity: 0 !important} </style>
+<script> (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y; h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')}; (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c); })(window,document.documentElement,'async-hide','dataLayer',4000,{'GTM-WQNGFQ':true}); </script>
+    
+
+      
+
+</head>
+<body class="process-layout">
+    
+
+
+    <div class="storage-quote">
+        <div class="storage-quote__header">
+
+                <div itemscope itemtype="http://schema.org/Brand" class="storage-quote__header-logo">
+                    <a href="/">
+                            <img itemprop="logo" src="https://res.cloudinary.com/moversng/image/upload/v1586740232/TODO%20STORAGE/todostoragegreen_tl2gws.svg" alt="Access brand logo" class="storage-quote__header-logo-img" />
+                    </a>
+                </div>
+            <div class="process-header">
+                <div class="storage-quote__progress-indicator">
+    <ul class="storage-quote__progress-list">
+        <li class="storage-quote__progress-list-item">
+            <div class="storage-quote__progress-stage storage-quote__progress-stage--active animated fadeIn">
+                <span class="storage-quote__progress-stage-number">1</span>
+                <img class="storage-quote__progress-stage-icon" src="https://res.cloudinary.com/moversng/image/upload/v1586741646/TODO%20STORAGE/locationmarker-todostorage_tdqrjm.svg">
+            </div>
+            <div class="storage-quote__progress-title storage-quote__progress-title--active animated fadeIn">Location</div>
+        </li>
+        <li class="storage-quote__progress-list-item">
+            <div class="storage-quote__progress-stage storage-quote__progress-stage--">
+                <span class="storage-quote__progress-stage-number">2</span>
+                <img class="storage-quote__progress-stage-icon" src="https://www.accessstorage.com/-/media/images/icons/progress-indicator/size.svg">
+            </div>
+            <div class="storage-quote__progress-title storage-quote__progress-title--">Size</div>
+        </li>
+        <li class="storage-quote__progress-list-item">
+            <div class="storage-quote__progress-stage storage-quote__progress-stage--">
+                <span class="storage-quote__progress-stage-number">3</span>
+                <img class="storage-quote__progress-stage-icon" src="https://www.accessstorage.com/-/media/images/icons/progress-indicator/account.svg">
+            </div>
+            <div class="storage-quote__progress-title storage-quote__progress-title--">Details</div>
+        </li>
+        <li class="storage-quote__progress-list-item">
+            <div class="storage-quote__progress-stage storage-quote__progress-stage--">
+                <span class="storage-quote__progress-stage-number">4</span>
+                <img class="storage-quote__progress-stage-icon" src="https://www.accessstorage.com/-/media/images/icons/progress-indicator/document.svg">
+            </div>
+            <div class="storage-quote__progress-title storage-quote__progress-title--">Quote</div>
+        </li>
+    </ul>
+</div>
+
+            </div>
+            <div class="process-header__close">
+                <a href="/" class="process-header__cancel-link">
+   
+</a>
+
+            </div>
+        </div>
+        <div class="process-wrapper">
+            
+
+<div class="storage-quote">
+    
+
+<div id="google-search-panel"
+     class="storage-quote__content"
+     style="background:url(https://www.accessstorage.com/-/media/images/components/c006/c006-3-location-search-panel/default-location-map--lrg2x.jpg);"
+     data-labels="{&quot;LocationIcon&quot;:&quot;https://www.accessstorage.com/-/media/images/icons/small/location.svg&quot;,&quot;TelephoneIcon&quot;:null,&quot;EmailIcon&quot;:null,&quot;SelectText&quot;:&quot;Select this store&quot;,&quot;ViewStoreInfo&quot;:&quot;View store information&quot;}">
+
+
+     
+    <div class="storage-quote__content-search">
+        <h1 class="storage-quote__content-search-title">Find a store near you</h1>
+      
+        <div class="storage-quote__search-box controls">
+            <input id="search-input"
+                   class=" storage-quote__content-search-input storage-quote__content-search-input-icon"
+                   type="text"
+                   placeholder="Search by postcode or location" />
+
+        </div>
+
+        <div id="storage-quote-search-error" class="storage-quote__search-error storage-quote__search-error--hidden">
+            Oops, we can't find the place you are looking for. Try again?
+        </div>
+        <div id="current-location" class="current-location__button current-location__button--hidden">
+            Get current location
+        </div>
+        <div class="store-locations store-locations--hidden">
+            <a href="#" class="store-locations__toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="store-locations__toggle-icon">
+                    <polygon fill="#5e6172" points="15.586 10 12 13.587 8.414 10 7 11.414 12 16.414 17 11.414" />
+                </svg>
+                Hide results
+            </a>
+             <h3 class="store-empty-list" style="padding:10px auto" ></h3>
+            <ul class="store-locations__list"></ul>
+        </div>
+        <div id="google-map-info" class="storage-quote__info storage-quote__info--hidden">
+            <div class="storage-quote__info-details"></div>
+            <a href="#" class="storage-quote__show-results">< Results</a>
+        </div>
+    </div>
+    <div id="google-map"
+         class="storage-quote__content-map storage-quote__content-map--hidden">
+        <div class="storage-quote__full-screen-content storage-quote__full-screen-content--hidden">
+           
+            <div class="storage-quote__full-screen-link">or <span class="storage-quote__closest-store-link">Find a store near you</span></div>
+        </div>
+        <div id="map" class="js-map" data-store-display-count="5" data-services-filter=""></div>
+    </div>
+</div>
+</div>
+
+        </div>
+    </div>
+    <div class="storage-footer">
+        <div class="storage-footer__content">
+    <div class="storage-footer__copyright">
+
+
+<div itemscope itemtype="http://schema.org/Brand" class="brand-copyright">
+    &#169; Access Storage 2020
+</div>
+</div>
+    <div class="storage-footer__links">
+        <div class="storage-footer__links-legal">
+
+
+
+
+    <ul class="legal-links">
+                <li class="legal-links__item">
+                    <a href="https://www.accessstorage.com/about-us/terms-and-conditions" class="legal-links__item-link ">Terms and Conditions</a>
+                </li>
+                <li class="legal-links__item">
+                    <a href="https://www.accessstorage.com/about-us/privacy-policy" class="legal-links__item-link ">Privacy Policy</a>
+                </li>
+                <li class="legal-links__item">
+                    <a href="https://www.accessstorage.com/about-us/cookie-policy" class="legal-links__item-link ">Cookie Policy</a>
+                </li>
+                <li class="legal-links__item">
+                    <a href="javascript:if(GDPR &amp;amp;&amp;amp; GDPR.gdprBanner) { GDPR.gdprBanner.openCookies(); } else { console.log(&#39;GDPR module not found, cannot open cookie settings.&#39;); }" class="legal-links__item-link gdpr-manage-cookies">Cookie Settings</a>
+                </li>
+                <li class="legal-links__item">
+                    <a href="https://www.accessstorage.com/faqs" class="legal-links__item-link ">FAQs</a>
+                </li>
+    </ul>
+</div>
+        <div class="storage-footer__links-social">
+
+
+    <div class="social-links">
+            <a href="http://www.facebook.com/AccessStorage.co.uk" class="social-links__link" target="_blank">
+                    <img src="https://www.accessstorage.com/-/media/images/social-icons/facebook-white.svg" alt="Facebook icon" />
+            </a>
+            <a href="http://www.linkedin.com/company/access-self-storage" class="social-links__link" target="_blank">
+                    <img src="https://www.accessstorage.com/-/media/images/social-icons/linkedin-white.svg" alt="LinkedIn icon" />
+            </a>
+            <a href="http://www.twitter.com/access4news" class="social-links__link" target="_blank">
+                    <img src="https://www.accessstorage.com/-/media/images/social-icons/twitter-white.svg" alt="Twitter icon" />
+            </a>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+
+    </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAdKb-HhkmlJXB4LNvjkN2P7Saz4vN8tU&amp;libraries=places,geometry"></script>
+    <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/snazzy-info-window@1.1.1/dist/snazzy-info-window.min.js'></script>
+    <script src="dist/js/app.js"></script>
+
+    <script src="dist/scripts/cookie-compliance-main.js" type="text/javascript"></script>
+
+   
+</body>
+</html>
