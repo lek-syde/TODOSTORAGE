@@ -1257,8 +1257,8 @@ label {
 .size-selector__previous-cta:before,
 .store-banner__slider-next-btn:before,
 .store-banner__slider-prev-btn:before {
-    content: url(../../../../../dist/assets/icons/arrow-primary-blue.svg);
-    border: 1px solid rgba(0, 75, 141, .4);
+    content: url(../../../../../dist/assets/icons/arrow-primary-white.svg);
+    border: 1px solid #4CAF50;
     color: #4CAF50;
     margin-right: 16px;
     -webkit-transform: rotate(180deg);
@@ -1370,7 +1370,7 @@ label {
 .saved-details__submit-cta:hover:after,
 .shopping-basket__submit-cta:hover:after,
 .size-selector__submit-cta:hover:after {
-    background-color: #0da8db
+    background-color: #4caf50;
 }
 
 .blog-articles__controls-next:after,
@@ -1390,7 +1390,7 @@ label {
 .shopping-basket__submit-cta:after,
 .size-selector__submit-cta:after {
     content: url(../../../../../dist/assets/icons/arrow-white.svg);
-    background-color: #13b5ea;
+    background-color: #4CAF50;
     color: #fff;
     margin-left: 16px
 }
@@ -2696,7 +2696,7 @@ p {
 }
 
 .basic-cta-banner__cta:after {
-    content: url(../../../dist/assets/icons/arrow-primary-blue.svg);
+    content: url(../../../dist/assets/icons/arrow-primary-white.svg);
     position: absolute;
     top: 20px;
     right: 25px
@@ -2775,7 +2775,7 @@ p {
 }
 
 .cta-panel__action-btn:after {
-    content: url(../icons/arrow-primary-blue.svg)
+    content: url(../icons/arrow-primary-white.svg)
 }
 
 @media (min-width:768px) {
@@ -3491,7 +3491,7 @@ p {
 
 @media (min-width:768px) {
     .content-mosaic__item--full-width:before {
-        content: url(../../../dist/assets/icons/arrow-primary-blue.svg);
+        content: url(../../../dist/assets/icons/arrow-primary-white.svg);
         position: absolute;
         top: -webkit-calc(50% - 12px);
         top: calc(50% - 12px);
@@ -6468,7 +6468,7 @@ h1+.page-introduction {
 }
 
 .size-selector__image {
-    background-color: #5e6172
+    background-color: #ffff;
 }
 
 @media (min-width:1024px) {
@@ -6530,6 +6530,14 @@ h1+.page-introduction {
         border-width: 0 8px 8px
     }
 }
+
+.vue-slider-dot-handle{
+	background-color: rgb(255, 255, 255);
+    border: 7px solid #4CAF50 !important;
+    box-shadow: none;
+	
+}
+
 
 .sticky-convert-quote__banner {
     background-color: #fff;
@@ -7040,6 +7048,10 @@ h1+.page-introduction {
 
 .storage-quote__progress-stage--complete {
     display: none
+}
+.storage-footer__links-legal{
+	text-align: left;
+	
 }
 
 @media (min-width:768px) {
@@ -10414,7 +10426,7 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
 }
 
 .edit-details-link:after {
-    content: url(../../../dist/assets/icons/arrow-primary-blue.svg);
+    content: url(../../../dist/assets/icons/arrow-primary-white.svg);
     display: inline-block;
     vertical-align: middle
 }

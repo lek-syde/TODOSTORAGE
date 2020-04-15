@@ -66,6 +66,8 @@ public class pageController {
 	}
 	
 	
+	
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/storage/your-details")
 	public String processform(Model model,HttpServletRequest request, @ModelAttribute("booking") Booking formdetails) {
 		
