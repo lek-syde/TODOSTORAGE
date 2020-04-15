@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     searchHeroBanner.init();
     processForms.init();
     expandingStoreList.init();
-    document.querySelector('label').click(function () {});
+    
 });
 "use strict";
 
