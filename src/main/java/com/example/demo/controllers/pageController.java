@@ -111,13 +111,13 @@ public class pageController {
 	public Quote generateQuote(Booking booking) {
 		Quote qt= new Quote();
 		qt.setMainSize(booking.getSize());
-		qt.setMainFullPricePerMonth("£206.00");
-		qt.setMainFullPricePerWeek("£47.54");
-		qt.setMainDiscountedPricePerMonth("£103.00");
-		qt.setMainDiscountedPricePerWeek("£23.77");
-		qt.setMainDiscountPerMonthDescription("");
-		qt.setMainDiscountedPricePerWeek("");
-		qt.setUpgradePricePerWeek("");
+		qt.setMainFullPricePerMonth("₦206.00");
+		qt.setMainFullPricePerWeek("₦47.54");
+		qt.setMainDiscountedPricePerMonth("₦103.00");
+		qt.setMainDiscountedPricePerWeek("₦23.77");
+		qt.setMainDiscountPerMonthDescription("₦103.00");
+		qt.setMainDiscountedPricePerWeek("₦103.00");
+		qt.setUpgradePricePerWeek("₦103.00");
 		qt.setUpgradeSize(0);
 		
 		
