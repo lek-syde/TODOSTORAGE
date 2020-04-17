@@ -95,7 +95,7 @@
 
                 <label class="provide-details__form-label" for="FirstName">First name</label>
 
-                <input class="provide-details__form-input" id="FirstName" th:field="*{firstname}" maxlength="30" name="FirstName" pattern="^[a-zA-Z]+(([&#39;,. -][a-zA-Z ])?[a-zA-Z]*)*$" required="true" title="Please enter your first name" type="text"  />
+                <input class="provide-details__form-input" id="firstname" name="firstname"  th:value="*{firstname}" maxlength="30"  pattern="^[a-zA-Z]+(([&#39;,. -][a-zA-Z ])?[a-zA-Z]*)*$" required="true" title="Please enter your first name" type="text"  />
 
             </div>
             <div class="provide-details__field">

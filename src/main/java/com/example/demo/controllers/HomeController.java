@@ -54,10 +54,7 @@ public class HomeController {
 	@RequestMapping(method = RequestMethod.GET, value = "/findall")
 	public List<StorageSpace> findalls(Model model) {
 		
-		
-		
 		return storagerepo.findAll();
-		
 		
 	}
 	

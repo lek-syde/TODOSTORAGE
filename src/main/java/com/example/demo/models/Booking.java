@@ -16,6 +16,11 @@ public class Booking implements Serializable {
 	String email;
 	String phone;
 	
+	String storagename;
+	
+	
+	
+	
 	
 	
 	
@@ -59,6 +64,12 @@ public class Booking implements Serializable {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public String getStoragename() {
+		return storagename;
+	}
+	public void setStoragename(String storagename) {
+		this.storagename = storagename;
 	}
 	
 	

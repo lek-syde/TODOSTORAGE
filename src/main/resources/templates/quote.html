@@ -107,8 +107,8 @@
 
                 <!-- Personalised Title -->
 <div class="storage-quote-price__title">
-        <h1>Thanks {NAME}, here&#39;s your quote. <br/> We have also sent you this invoice to your mail</h1>
-        <div class="storage-quote-price__sub-title" v-if="showExtrasPanel">
+        <h1>Thanks [[${booking.firstname}]], here&#39;s your quote. <br/> We can also sent you this invoice to your mail for future action</h1>
+        <div class="storage-quote-price__sub-title" >
             We can help you protect your valuables
         </div>
 </div>
@@ -118,6 +118,9 @@
     <transition enter-active-class="animated.slow fadeIn" leave-active-class="animated.fast fadeOut" mode="in-out">
         <div class="storage-quote-price__details" v-show="!showExtrasPanel">
 
+			<form action="" th:object="${booking}">
+			
+			
             <!-- Tab Area -->
             <div class="" id="">
                 <!-- Time Toggler -->
@@ -168,7 +171,7 @@
     </g>
 </svg>
 
-				        [SHOW STORAGE SELECTED]
+				        [[${booking.storagename}]]
                         <a class="storage-quote-price__modify-location-current-store-link" href="/book">Change</a>
                     </div>
 
@@ -186,14 +189,16 @@
     </g>
 </svg>
 
-                       <span class="storage-quote-price__modify-size-unit-size--bold">{{ currentUnitSize }}</span> sq.ft.
-                        <a class="storage-quote-price__modify-location-current-store-link" href="/book">Change</a>
+                       <span class="storage-quote-price__modify-size-unit-size--bold" th:text="${booking.size}"></span> sq.ft.
+                        <a class="storage-quote-price__modify-location-current-store-link" th:href="@{/book?StoreId={id}(id = ${booking.storeid})}">Change</a>
                     </div>
 
                 </div>
               
                
             </div>
+            
+            </form>
         </div>
 
 

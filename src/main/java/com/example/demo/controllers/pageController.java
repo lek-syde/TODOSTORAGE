@@ -1,9 +1,14 @@
 package com.example.demo.controllers;
 
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.models.Booking;
 import com.example.demo.models.Quote;
+import com.todo.repository.StorageSpaceRepo;
 import com.todo.restmodels.StorageSpace;
 
 
@@ -22,6 +28,8 @@ import com.todo.restmodels.StorageSpace;
 @Controller
 public class pageController {
 	
+	@Autowired
+	StorageSpaceRepo storagerepo;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/book")
 	public String index(Model model, @RequestParam(required = false, defaultValue = "0") Integer StoreId, HttpSession session, HttpServletRequest request) {
@@ -33,17 +41,21 @@ public class pageController {
 			booking = new Booking();
 			
 		}
-		request.getSession().setAttribute("booking", booking);
+		
 		
 		if(StoreId > 0) {
+			StorageSpace storageinfo= storagerepo.findByInformationid(StoreId);
 			
+			System.out.println(storageinfo.getInformation().getTitle());
 			booking.setStoreid(StoreId);
+			booking.setStoragename(storageinfo.getInformation().getTitle());
 			
 			return "stora";
 			
 			
 		}
 		
+		request.getSession().setAttribute("booking", booking);
 		return "storage";
 	}
 	
@@ -61,7 +73,8 @@ public class pageController {
 		}
 		
 		booking.setSize(unitsize);
-		 model.addAttribute("booking", booking);
+		request.getSession().setAttribute("booking", booking);
+		model.addAttribute("booking", booking);
 		return "details";
 	}
 	
@@ -87,6 +100,8 @@ public class pageController {
 		booking.setLastname(formdetails.getLastname());
 		booking.setPhone(formdetails.getPhone());
 		
+		request.getSession().setAttribute("booking", booking);
+		System.out.println("size- "+ booking.getSize());
 		 model.addAttribute("booking", booking);
 		 
 		 
@@ -107,16 +122,32 @@ public class pageController {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(generateQuote(booking));
 	}
 	
+	@Value("${PRICE_PER_SQ_FEET}")
+	private int pricepersqfeet;
 	
 	public Quote generateQuote(Booking booking) {
 		Quote qt= new Quote();
+		
+		
+		NumberFormat numberFormat = new DecimalFormat( "#,###.00" );
+		
+		
+		
+		double pricepermonth= booking.getSize() * pricepersqfeet * 30;
+		double priceperweek= booking.getSize() * pricepersqfeet * 7;
+		
+		
+		String pricepermonthtxt = numberFormat.format(pricepermonth);
+		String priceperweektxt = numberFormat.format(priceperweek);
+		
 		qt.setMainSize(booking.getSize());
-		qt.setMainFullPricePerMonth("₦206.00");
+		qt.setMainFullPricePerMonth(pricepermonthtxt);
 		qt.setMainFullPricePerWeek("₦47.54");
-		qt.setMainDiscountedPricePerMonth("₦103.00");
+		qt.setMainDiscountedPricePerMonth("₦"+pricepermonthtxt);
 		qt.setMainDiscountedPricePerWeek("₦23.77");
 		qt.setMainDiscountPerMonthDescription("₦103.00");
-		qt.setMainDiscountedPricePerWeek("₦103.00");
+		
+		qt.setMainDiscountedPricePerWeek("₦"+priceperweektxt);  // price per week
 		qt.setUpgradePricePerWeek("₦103.00");
 		qt.setUpgradeSize(0);
 		
