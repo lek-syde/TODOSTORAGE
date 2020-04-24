@@ -628,7 +628,7 @@ button {
 }
 
 .gdpr-fixed {
-    background-color: #f1f2f8;
+    background-color: #fff;
     color: #004b92
 }
 
@@ -781,7 +781,7 @@ button {
 .wffm-form-wrapper .form-submit-border input:active,
 .wffm-form-wrapper .form-submit-border input:hover {
     color: #fff;
-    background: #222222;
+    background: #2d542f;
 }
 
 .collect-in-store__store-select,
@@ -831,7 +831,7 @@ button {
 .storage-quote-price__extra-panel-cta-btn:hover,
 .store-map__info-directions-btn:active,
 .store-map__info-directions-btn:hover {
-    background: #f1f2f8;
+    background: #fff;
     border: 1px solid #4CAF50
 }
 
@@ -1062,8 +1062,8 @@ label {
 .content-mosaic__item--half-width {
     display: block;
     margin-bottom: 20px;
-    padding: 40px 40px 250px;
-    background: #f1f2f8 no-repeat;
+    padding: 40px 40px 40px;
+    background: #fff no-repeat;
     background-size: auto 180px;
     border-radius: 8px
 }
@@ -1537,7 +1537,7 @@ p {
 }
 
 .wffm-form-wrapper {
-    background: #f1f2f8;
+    background: #fff;
     padding: 20px;
     font-family: Oswald, sans-serif;
     font-size: 14px
@@ -1651,7 +1651,7 @@ p {
 }
 
 .ui-datepicker table td .ui-state-hover {
-    background: #f1f2f8
+    background: #fff
 }
 
 .ui-datepicker table td .ui-state-active {
@@ -1855,14 +1855,21 @@ p {
 .brand-logo {
     display: inline-block;
     position: relative;
-    max-width: 72px;
-    z-index: 3
+    max-width: 230px;
+    z-index: 3;
+    top: -25px;
+height: 300%;
+background-color: #fff;
+border-right: 10p;
+border-bottom-left-radius: 25px;
+border-bottom-right-radius: 25px;
 }
 
 @media (min-width:768px) {
     .brand-logo {
-        max-width: 150px;
-        margin-right: 40px
+        max-width: 230px;
+        margin-right: 40px;
+        height: 200%;
     }
 }
 
@@ -1880,9 +1887,11 @@ p {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(0, 0, 0, .2)
+    
 }
-
+.global-header:hover {
+	background-color: #fff;
+}
 @media (min-width:768px) {
     .global-header {
         height: 100px;
@@ -2075,7 +2084,8 @@ p {
 .global-nav__list {
     list-style-type: none;
     margin: 0;
-    padding: 20px 0
+    padding: 20px 0;
+  
 }
 
 @media (min-width:768px) {
@@ -2091,6 +2101,7 @@ p {
         display: -ms-flexbox;
         display: flex;
         padding: 0;
+          padding-left: 60px;
         border-top: none
     }
 }
@@ -2223,7 +2234,7 @@ p {
     display: none;
     list-style-type: none;
     padding: 30px 20px;
-    background: #f1f2f8;
+    background: #fff;
     margin: 0 -60px -1px -20px;
     border-radius: 4px
 }
@@ -2340,7 +2351,7 @@ p {
     height: 2px;
     width: 16px;
     border-radius: 1px;
-    background-color: #13b5ea;
+    background-color: #4CAF50;
     -webkit-transition: opacity .3s ease-in-out, -webkit-transform .3s ease-in-out;
     transition: opacity .3s ease-in-out, -webkit-transform .3s ease-in-out;
     transition: transform .3s ease-in-out, opacity .3s ease-in-out;
@@ -3191,7 +3202,7 @@ p {
 .expanding-rta {
     position: relative;
     padding: 80px 20px 20px;
-    background: #f1f2f8
+    background: #fff;
 }
 
 @media (min-width:768px) {
@@ -3428,7 +3439,7 @@ p {
     .content-mosaic__item--half-width {
         width: -webkit-calc(50% - 20px);
         width: calc(50% - 20px);
-        padding: 60px 40px 200px;
+        padding: 60px 40px 60px;
         background-size: auto 40%
     }
 }
@@ -3437,7 +3448,7 @@ p {
     .content-mosaic__item--half-width {
         width: -webkit-calc(50% - 20px);
         width: calc(50% - 20px);
-        padding: 80px 60px 320px;
+        padding: 80px 60px 80px;
         background-size: auto 50%
     }
 }
@@ -3875,7 +3886,7 @@ h1+.page-introduction {
     padding: 0;
     max-width: 1060px;
     height: 250px;
-    background: #f1f2f8
+    background: #fff;
 }
 
 @media (min-width:1024px) {
@@ -4919,7 +4930,7 @@ h1+.page-introduction {
 }
 
 .storage-quote {
-    background-color: #f1f2f8;
+    background-color: #fff;;
     width: 100%
 }
 
@@ -4935,7 +4946,7 @@ h1+.page-introduction {
 
 @media (min-width:768px) {
     .storage-quote__content {
-        background-color: #f1f2f8;
+        background-color: #fff;
         -ms-flex-line-pack: center;
         align-content: center;
         display: -webkit-box;
@@ -4976,7 +4987,7 @@ h1+.page-introduction {
 @media (min-width:1024px) {
     .storage-quote__content-search {
         text-align: center;
-        height: 550px;
+        height: 75vh;
         margin: 60px auto 0;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -5093,7 +5104,7 @@ h1+.page-introduction {
     padding-top: 20px;
     width: 100%;
     height: 100vh;
-    background-color: #f1f2f8
+    background-color: #fff
 }
 
 .storage-quote__content-map--full-width input[type=text] {
@@ -5755,7 +5766,7 @@ h1+.page-introduction {
 @media (min-width:768px) {
     .home-quote-banner__sub-title {
         margin: 0 auto 40px;
-        max-width: 450px
+      
     }
 }
 
@@ -5780,7 +5791,7 @@ h1+.page-introduction {
 
 @media (min-width:768px) {
     .home-quote-banner__input-wrapper:before {
-        content: url(/dist/assets/icons/search.png);
+        content: url(/dist/assets/icons/search-big-todostorage.svg);
         display: inline-block;
         margin-top: 10px;
         margin-right: 12px;
@@ -6197,7 +6208,7 @@ h1+.page-introduction {
     justify-content: center;
     width: 100%;
     text-align: center;
-    background-color: #f1f2f8
+    background-color: #fff
 }
 
 @media (min-width:768px) {
@@ -6920,7 +6931,7 @@ h1+.page-introduction {
 }
 
 .storage-quote__content {
-    background-color: #f1f2f8;
+    background-color: #fff;
     -ms-flex-line-pack: center;
     align-content: center;
     display: -webkit-box;
@@ -6983,7 +6994,7 @@ h1+.page-introduction {
     font-size: 18px;
     font-weight: 700;
     color: #babcbe;
-    background: #f1f2f8;
+    background: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -7113,8 +7124,8 @@ h1+.page-introduction {
 }
 
 .storage-quote__header-logo-img {
-    width: 170px;
-    margin: 0px 20px
+    width: 130px;
+    margin: 20px 20px
 }
 
 @media (min-width:768px) {
@@ -7127,7 +7138,8 @@ h1+.page-introduction {
 @media (min-width:1024px) {
     .storage-quote__header-logo-img {
         width: 150px;
-        margin: 25px 40px
+        margin:0px 40px;
+       
     }
 }
 
@@ -11750,7 +11762,7 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
 }
 
 .standard-product-list {
-    background: #f1f2f8;
+    background: #fff;
     padding: 40px 20px
 }
 
@@ -12294,7 +12306,7 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
 }
 
 .saved-quotes {
-    background: #f1f2f8;
+    background: #fff;
     padding: 40px 20px 80px
 }
 
@@ -12385,7 +12397,7 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
     flex-wrap: wrap;
     -ms-flex-item-align: center;
     align-self: center;
-    border-right: 1px solid #f1f2f8;
+    border-right: 1px solid #fff;
     width: 50%
 }
 
@@ -12566,7 +12578,7 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    background: #f1f2f8
+    background: #fff
 }
 
 .update-marketing-preferences__form {
@@ -12656,7 +12668,7 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    background: #f1f2f8;
+    background: #fff;
     padding: 20px 20px 40px
 }
 
@@ -12753,7 +12765,7 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
 
 .update-personal-details {
     display: block;
-    background: #f1f2f8;
+    background: #fff;
     padding: 20px 20px 40px
 }
 
@@ -13056,7 +13068,7 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
     justify-content: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    background: #f1f2f8;
+    background: #fff;
     padding-bottom: 80px
 }
 
@@ -16762,7 +16774,7 @@ body.body--no-scroll {
 }
 
 .process-layout {
-    background-color: #f1f2f8
+    background-color: #fff
 }
 
 @font-face {
