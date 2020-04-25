@@ -1889,9 +1889,7 @@ border-bottom-right-radius: 25px;
     justify-content: space-between;
     
 }
-.global-header:hover {
-	background-color: #fff;
-}
+
 @media (min-width:768px) {
     .global-header {
         height: 100px;
@@ -1903,6 +1901,11 @@ border-bottom-right-radius: 25px;
     .global-header {
         padding: 25px 40px
     }
+    .global-header:hover {
+	background-color: #fff;
+	
+}
+
 }
 
 .global-actions {
