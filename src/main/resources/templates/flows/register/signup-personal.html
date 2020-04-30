@@ -1,70 +1,180 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: head(title='Registration Page 1')"></head>
+<head th:replace="fragments/header_com :: head(title='Registration Page 1')"></head>
 
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h1>Personal Information (Stage 1)</h1>
-				<hr />
-				<a th:href="@{'~' + ${flowExecutionUrl} + '&_eventId_home'}" class="btn btn-danger">Home</a>
+	
+	<header th:include="fragments/headersection"></header>
 
-				<form method="post" th:object="${personalInfo}" enctype="multipart/form-data">
-					<div class="form-group row">
-						<label for="image" class="col-sm-2 col-form-label">Username</label>
-						<div class="col-sm-10">
-							<input type="file" class="form-control" id="image" placeholder="Image file" name="image" />
-							<small class="form-text text-danger" th:if="${#fields.hasErrors('imageContent')}" th:errors="*{imageContent}"></small>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="username" class="col-sm-2 col-form-label">Username</label>
-						<div class="col-sm-10">
-							<input th:field="*{username}" type="text" class="form-control" id="username" placeholder="Username" autofocus />
-							<small class="form-text text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="password" class="col-sm-2 col-form-label">Password</label>
-						<div class="col-sm-10">
-							<input th:field="*{password}" type="password" class="form-control" id="password" placeholder="Password" />
-							<small class="form-text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="confirmPassword" class="col-sm-2 col-form-label">Confirm Password</label>
-						<div class="col-sm-10">
-							<input th:field="*{confirmPassword}" type="password" class="form-control" id="confirmPassword" placeholder="Re-enter password" />
-							<small class="form-text text-danger" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></small>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="firstname" class="col-sm-2 col-form-label">First Name</label>
-						<div class="col-sm-10">
-							<input th:field="*{firstname}" type="text" class="form-control" id="firstname" placeholder="First Name" />
-							<small class="form-text text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></small>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
-						<div class="col-sm-10">
-							<input th:field="*{lastname}" type="text" class="form-control" id="lastname" placeholder="Last Name" />
-							<small class="form-text text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></small>
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-sm-10">
-							<button type="submit" class="btn btn-primary" name="_eventId_billing">Next (Billing) &raquo;</button>
-						</div>
-					</div>
-				</form>
+ 
+    
+    <div class="rta">
+        <p>Got a question or need a quote? We're always happy to help.</p>
+        <p>Just complete our quick form below and we'll get back to you as soon as possible, or you can <a href="https://www.accessstorage.com/our-stores">contact your local store</a>. And don't forget, you can talk to us online 24 hours a day.</p>
+    </div>
+    <div class="wffm-form-wrapper">
+        <div class="wffm-form-wrapper__inner">
 
+
+
+
+
+
+            <form  method="post" th:object="${personalInfo}" enctype="multipart/form-data">   
+
+  
+    <!-- First Tab Panel-->
+    <fieldset class="provide-details__form">
+
+            <h1>Personnal Details</h1>
+        
+            <div class="provide-details__field">
+                <div class="field-error" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">
+                    Please enter your first name
+                </div>
+
+                <label class="provide-details__form-label" for="fullname">Full Name</label>
+
+                <input class="provide-details__form-input" th:field="*{fullname}" id="fullname"    maxlength="30"  pattern="^[a-zA-Z]+(([&#39;,. -][a-zA-Z ])?[a-zA-Z]*)*$" required="true" title="Please enter your first name" type="text"  />
+ 				
+            </div>
+           
+            <div class="provide-details__field">
+
+                <div class="field-error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">
+                    Please enter a valid contact number
+                </div>
+
+                <label class="provide-details__form-label" for="Phone">Contact number</label>
+
+                <input class="provide-details__form-input" th:field="*{phone}" id="Phone" maxlength="30"  pattern="^[0][1-9]\d{9}$|^[1-9]\d{9}$" required="true" title="Please enter a valid contact number" type="tel" />
+
+            </div>
+            <div class="provide-details__field">
+
+                <div class="field-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                    Please enter your email address
+                </div>
+
+                <label class="provide-details__form-label" for="email">Email address</label>
+
+                <input class="provide-details__form-input" th:field="*{email}" id="email"   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required="true" title="Please enter your email address" type="email"  />
+            </div>
+            
+            
+			            			<!-- partial:index.partial.html -->
+			<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+			<div class="file-upload">
+			  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Upload Valid Identification</button>
+			
+			  <div class="image-upload-wrap">
+			    <input class="file-upload-input" th:field="*{image}" type="file" id="image"  name="image" onchange="readURL(this);" accept="image/*" />
+			    <div class="drag-text">
+			      <h3>Drag and drop a file or select add Image</h3>
+			    </div>
+			  </div>
+			  <div class="file-upload-content">
+			    <img class="file-upload-image" src="#" alt="your image" />
+			    <div class="image-title-wrap">
+			      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+			    </div>
+			  </div>
 			</div>
-		</div>
-	</div>
-	<script th:replace="fragments/scripts :: scripts"></script>
+			<!-- partial -->
+			  <script  th:src="@{script.js}"></script>
+        
+
+
+
+        <p class="provide-details__disclaimer">Your personal details won’t be shared outside of our walls to any third parties, we only take this to give you our best possible price and stay in touch on fantastic offers.</p>
+
+        <div class="provide-details__step-ctas">
+            <a href="" class="provide-details__previous-cta">
+                <span class="provide-details__previous-cta-text">Previous</span>
+            </a>
+            <button type="submit" name="_eventId_billing" class="provide-details__submit-cta access-form__submit">
+                <span class="provide-details__submit-cta-text">Space Details</span>
+            </button>
+        </div>
+
+    </fieldset>
+    <!-- First Tab Panel End-->
+</form>
+
+         
+
+        </div>
+    </div>
+
+     <footer class="global-footer">
+        
+
+
+    <div class="cta-panel">
+        <div class="cta-panel__info">
+            <p class="cta-panel__info-title">We understand</p>
+            <p class="cta-panel__info-copy">Find a cheaper quote and we'll match it!</p>
+        </div>
+
+
+        <div class="cta-panel__action">
+
+<a href="/book" class="cta-panel__action-btn" >Get a quote</a>
+        </div>
+    </div>
+
+        <div class="storage-footer">
+        <div class="storage-footer__content">
+    <div class="storage-footer__copyright">
+
+
+<div itemscope itemtype="https://schema.org/Brand" class="brand-copyright">
+    &#169; TO-DO Group
+</div>
+</div>
+    <div class="storage-footer__links">
+        <div class="storage-footer__links-legal">
+
+
+
+
+    <ul class="legal-links">
+                <li class="legal-links__item">
+                    <a href="" class="legal-links__item-link ">Terms and Conditions</a>
+                </li>
+                <li class="legal-links__item">
+                    <a href="" class="legal-links__item-link ">Privacy Policy</a>
+                </li>
+               <li class="legal-links__item">
+                    <a href="" class="legal-links__item-link ">FAQs</a>
+                </li>
+    </ul>
+</div>
+        <div class="storage-footer__links-social">
+
+
+     <div class="social-links">
+            <a href="" class="social-links__link" target="_blank">
+                    <img  th:src="@{/dist/assets/social-icons/facebook-white.svg}" alt="Facebook icon" />
+            </a>
+            <a href="" class="social-links__link" target="_blank">
+                    <img th:src="@{/dist/assets/social-icons/linkedin-white.svg}" alt="LinkedIn icon" />
+            </a>
+            <a href="" class="social-links__link" target="_blank">
+                    <img th:src="@{/dist/assets/social-icons/twitter-white.svg}" alt="Twitter icon" />
+            </a>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+
+    </div>
+    </footer>
+	<script th:replace="fragments/scripts_com :: scripts"></script>
 </body>
 
 </html>

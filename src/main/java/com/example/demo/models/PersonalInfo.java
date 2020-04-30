@@ -1,9 +1,10 @@
 package com.example.demo.models;
 
-import java.io.IOException;
+
 import java.io.Serializable;
 import java.util.Base64;
 
+import javax.persistence.Lob;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -12,22 +13,21 @@ public class PersonalInfo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	
 	private byte[] imageContent;
+	
+	MultipartFile image;
 
 	@NotBlank
-	private String username;
+	private String fullname;
+
+	
 
 	@NotBlank
-	private String password;
+	private String phone;
 
 	@NotBlank
-	private String confirmPassword;
-
-	@NotBlank
-	private String firstname;
-
-	@NotBlank
-	private String lastname;
+	private String email;
 
 	public byte[] getImageContent() {
 		return imageContent;
@@ -37,47 +37,47 @@ public class PersonalInfo implements Serializable {
 		return Base64.getEncoder().encodeToString(imageContent);
 	}
 
-	public void setImage(MultipartFile image) throws IOException {
-		this.imageContent = image.getBytes();
+	public void setImage(MultipartFile image) {
+		try {
+			this.imageContent = image.getBytes();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 	}
 
-	public String getUsername() {
-		return username;
+	public String getFullname() {
+		return fullname;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public String getConfirmPassword() {
-		return confirmPassword;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public void setImageContent(byte[] imageContent) {
+		this.imageContent = imageContent;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public MultipartFile getImage() {
+		return image;
 	}
 
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
+	
 }

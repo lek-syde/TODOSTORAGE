@@ -1,10 +1,14 @@
 package com.example.demo.handlers;
 
+import java.io.IOException;
+
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import com.example.demo.models.BillingInfo;
+import com.example.demo.models.DBFile;
 import com.example.demo.models.PersonalInfo;
 import com.example.demo.models.RegisterModel;
 
@@ -15,7 +19,8 @@ public class RegisterHandler {
 		return new RegisterModel();
 	}
 
-	public void addPersonalInfo(RegisterModel registerModel, PersonalInfo personalInfo) {
+	public void addPersonalInfo(RegisterModel registerModel, PersonalInfo personalInfo) throws IOException {
+		
 		registerModel.setPersonalInfo(personalInfo);
 	}
 
@@ -32,7 +37,7 @@ public class RegisterHandler {
 				.source("registration") //
 				.defaultText( //
 						String.format("Couldn't register user with username: %s!",
-								registerModel.getPersonalInfo().getUsername())) //
+								registerModel.getPersonalInfo().getFullname())) //
 				.build());
 		transitionValue = "failure";
 
@@ -42,27 +47,8 @@ public class RegisterHandler {
 	public String validatePersonalInfo(PersonalInfo personalInfo, MessageContext error) {
 		String transitionValue = "success";
 
-		// Checking that username is not equal to 'Vakho' :d XXX do whatever you want!
-		if (personalInfo.getUsername().equalsIgnoreCase("Vakho")) {
-			error.addMessage(new MessageBuilder(). //
-					error() //
-					.source("username") //
-					.defaultText("You are not allowed to use Vakho as the username!") //
-					.build());
 
-			transitionValue = "failure";
-		}
-
-		// Checking if password matched the confirm password
-		if (!personalInfo.getPassword().equals(personalInfo.getConfirmPassword())) {
-			error.addMessage(new MessageBuilder(). //
-					error() //
-					.source("confirmPassword") //
-					.defaultText("Password doesn't match up the confirm password!") //
-					.build());
-
-			transitionValue = "failure";
-		}
+       
 		return transitionValue;
 	}
 }
