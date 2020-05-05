@@ -14,9 +14,7 @@ public class PersonalInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	
-	private byte[] imageContent;
 	
-	MultipartFile image;
 
 	@NotBlank
 	private String fullname;
@@ -28,25 +26,20 @@ public class PersonalInfo implements Serializable {
 
 	@NotBlank
 	private String email;
+	
+	
+	@NotBlank(message = "Please upload your passport photograph")
+	private String imageurl;
+	
+	private String imagethumb;
 
-	public byte[] getImageContent() {
-		return imageContent;
-	}
-
-	public String getImageBase64() {
-		return Base64.getEncoder().encodeToString(imageContent);
-	}
-
-	public void setImage(MultipartFile image) {
-		try {
-			this.imageContent = image.getBytes();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		
-	}
-
+	
+	@NotBlank(message = "Please upload a valid Id")
+	private String validID;
+	
+	private String idthumb;
+	
+	
 	public String getFullname() {
 		return fullname;
 	}
@@ -71,13 +64,40 @@ public class PersonalInfo implements Serializable {
 		this.email = email;
 	}
 
-	public void setImageContent(byte[] imageContent) {
-		this.imageContent = imageContent;
+	public String getImageurl() {
+		return imageurl;
 	}
 
-	public MultipartFile getImage() {
-		return image;
+	public void setImageurl(String imageurl) {
+		this.imageurl = imageurl;
 	}
 
+	public String getValidID() {
+		return validID;
+	}
+
+	public void setValidID(String validID) {
+		this.validID = validID;
+	}
+
+	public String getImagethumb() {
+		return imagethumb;
+	}
+
+	public void setImagethumb(String imagethumb) {
+		this.imagethumb = imagethumb;
+	}
+
+	public String getIdthumb() {
+		return idthumb;
+	}
+
+	public void setIdthumb(String idthumb) {
+		this.idthumb = idthumb;
+	}
+
+	
+	
+	
 	
 }

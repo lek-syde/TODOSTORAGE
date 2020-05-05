@@ -8,6 +8,7 @@ public class RegisterModel implements Serializable {
 
 	private PersonalInfo personalInfo;
 	private BillingInfo billingInfo;
+	private StoragePicture storagepicture;
 
 	public PersonalInfo getPersonalInfo() {
 		return personalInfo;
@@ -24,4 +25,15 @@ public class RegisterModel implements Serializable {
 	public void setBillingInfo(BillingInfo billingInfo) {
 		this.billingInfo = billingInfo;
 	}
+
+	public StoragePicture getStoragepicture() {
+		return storagepicture;
+	}
+
+	public void setStoragepicture(StoragePicture storagepicture) {
+		this.storagepicture = storagepicture;
+	}
+	
+	
+	
 }

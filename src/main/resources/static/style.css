@@ -1,11 +1,59 @@
-body {
-  font-family: sans-serif;
-  background-color: #eeeeee;
+input[type="file"] {
+  display: block;
+}
+.imageThumb {
+  max-height: 75px;
+  border: 2px solid;
+  padding: 1px;
+  cursor: pointer;
+}
+.pip {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+}
+.remove {
+  display: block;
+  background: #444;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.remove:hover {
+  background: white;
+  color: black;
+}
+
+
+
+
+
+
+.file-upload-btn {
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  background: #1FB264;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #15824B;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.file-upload-btn:hover {
+  background: #1AA059;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
 }
 
 .file-upload {
   background-color: #ffffff;
-  
+  width: 600px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -43,7 +91,7 @@ body {
 }
 
 .file-upload-input {
-  position: absolute;
+  
   margin: 0;
   padding: 0;
   width: 100%;

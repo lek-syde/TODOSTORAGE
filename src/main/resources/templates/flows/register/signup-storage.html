@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header_com :: head(title='Registration Page 1')"></head>
+
+<body>
+	
+	<header th:include="fragments/headersection"></header>
+
+ 
+    
+    <div class="rta">
+        <p>Got a question or need a quote? We're always happy to help.</p>
+        <p>Just complete our quick form below and we'll get back to you as soon as possible, or you can <a href="https://www.accessstorage.com/our-stores">contact your local store</a>. And don't forget, you can talk to us online 24 hours a day.</p>
+    </div>
+    <div class="wffm-form-wrapper">
+        <div class="wffm-form-wrapper__inner">
+
+
+
+
+
+
+            <form  method="post" th:object="${billingInfo}" enctype="multipart/form-data">   
+
+  
+    <!-- First Tab Panel-->
+    <fieldset class="provide-details__form">
+
+            <h1>Storage Space Details</h1>
+        
+            <div class="provide-details__field">
+                <div class="field-error"  th:if="${#fields.hasErrors('address')}" th:errors="*{address}">
+                    Please enter space Address
+                </div>
+
+                <label class="provide-details__form-label" for="address">Space Address</label>
+
+                <input id="search-input" class=" provide-details__form-input" th:field="*{address}"    required="true" title="Please enter your first name" autocomplete="off" type="text"  />
+ 				
+            </div>
+           
+            <div class="provide-details__field">
+
+                <div class="field-error" th:if="${#fields.hasErrors('spaceType')}" th:errors="*{spaceType}">
+                    Please Choose a valid space type
+                </div>
+
+               <label class="control-label" for="spaceType">Which type of space is this ? <a target="_blank" >Space types</a></label>
+            
+            <select class="form-control" th:field="*{spaceType}"   required="true"  id="spaceType" name="spaceType">
+            <option value=""></option>
+			<option value="gurage">Guarage</option>
+			<option value="empty room">Empty Room</option>
+			<option value="open space">Open Space</option>
+			
+			</select>
+            </div>
+            
+            
+            
+            <div class="provide-details__field">
+                <div class="field-error" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">
+                    Please Choose a valid State
+                </div>
+                <label class="control-label" for="state">Which state is your space located?</label>
+            
+            <select class="form-control" th:field="*{state}"   required="true"  id="state" name="state">
+            <option value=""></option>
+			<option value="Abuja FCT">Abuja FCT</option>
+              <option value="Abia">Abia</option>
+              <option value="Adamawa">Adamawa</option>
+              <option value="Akwa Ibom">Akwa Ibom</option>
+              <option value="Anambra">Anambra</option>
+              <option value="Bauchi">Bauchi</option>
+              <option value="Bayelsa">Bayelsa</option>
+              <option value="Benue">Benue</option>
+              <option value="Borno">Borno</option>
+              <option value="Cross River">Cross River</option>
+              <option value="Delta">Delta</option>
+              <option value="Ebonyi">Ebonyi</option>
+              <option value="Edo">Edo</option>
+              <option value="Ekiti">Ekiti</option>
+              <option value="Enugu">Enugu</option>
+              <option value="Gombe">Gombe</option>
+              <option value="Imo">Imo</option>
+              <option value="Jigawa">Jigawa</option>
+              <option value="Kaduna">Kaduna</option>
+              <option value="Kano">Kano</option>
+              <option value="Katsina">Katsina</option>
+              <option value="Kebbi">Kebbi</option>
+              <option value="Kogi">Kogi</option>
+              <option value="Kwara">Kwara</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Nassarawa">Nassarawa</option>
+              <option value="Niger">Niger</option>
+              <option value="Ogun">Ogun</option>
+              <option value="Ondo">Ondo</option>
+              <option value="Osun">Osun</option>
+              <option value="Oyo">Oyo</option>
+              <option value="Plateau">Plateau</option>
+              <option value="Rivers">Rivers</option>
+              <option value="Sokoto">Sokoto</option>
+              <option value="Taraba">Taraba</option>
+              <option value="Yobe">Yobe</option>
+              <option value="Zamfara">Zamfara</option>
+			
+			</select>
+            </div>
+            
+            <div class="provide-details__field">
+
+                <div class="field-error" th:if="${#fields.hasErrors('spaceSize')}" th:errors="*{spaceSize}">
+                  Enter your space size
+                </div>
+
+                <label class="provide-details__form-label" for="state"> What is the Size of your space? (sqft) <a  target="_blank" href="https://www.wikihow.com/Measure-Square-Footage">how to calculate size</a></label>
+				
+                <input class="provide-details__form-input" th:field="*{spaceSize}" id="spaceSize" maxlength="5"  required="true" title="What is your space size" type="text" />
+
+            </div>
+            
+          
+
+
+        
+            <div class="provide-details__field">
+            
+              <div class="field-error" th:if="${#fields.hasErrors('otherDetails')}" th:errors="*{otherDetails}">
+                  Error
+                </div>
+
+                
+				<label class="control-label" for="otherDetails">Any other details?</label>
+            <textarea class="form-control" cols="1" th:field="*{otherDetails}" data-val="true" data-val-length-max="256" id="otherDetails" name="otherDetails" rows="4" spellcheck="false"></textarea>
+
+        	</div>
+        	
+        	
+        	<div class="provide-details__field">
+
+                <div class="field-error" th:if="${#fields.hasErrors('spaceCredentials')}" th:errors="*{spaceCredentials}">
+                    
+                   
+                </div>
+					
+                <label class="provide-details__form-label" for="validID">  Valid Space Credentials. <br/>Upload <b style="color: red">any one of these document</b> that shows you have rights to use this space. <br/>
+                <ul>
+                <li>CofO (certificate of ownership</li>
+                <li>Recent utility bill</li>
+                <li>proof of lease / lease agreement or</li>
+                 <li>any suitable document</li>
+                </ul>
+                    </label>
+
+               <input readonly="readonly"  th:style="'background-image:url(' + @{${billingInfo.spaceCredentials}} + '); padding-left:50px; background-repeat: no-repeat; background-size: 48px;'"  class="provide-details__form-input" th:field="*{spaceCredentials}" id="spaceCredentials"    required="true" title="spaceCredentials" type="text"   />
+            </div>
+            
+            <button id="valid_id_widget" style="background-color: #4CAF50; !important" class="cloudinary-button">Upload Valid Space Credentials </button>
+            
+            
+
+
+
+        <p class="provide-details__disclaimer">Your personal details won’t be shared outside of our walls to any third parties, we only take this to guarantee that we get the most genuine applications.</p>
+
+        <div class="provide-details__step-ctas">
+            <button type="submit"  name="_eventId_personal" class="prev provide-details__previous-cta">
+                <span class="provide-details__previous-cta-text">Previous</span>
+            </button>
+            <button type="submit" name="_eventId_pictures" class="provide-details__submit-cta access-form__submit">
+                <span class="provide-details__submit-cta-text">Space Details</span>
+            </button>
+        </div>
+
+    </fieldset>
+    <!-- First Tab Panel End-->
+</form>
+
+         
+
+        </div>
+    </div>
+    
+     <div class="store-features">
+        <div class="store-features__heading">Benefits of Todoselfstorage™️ Community ?</div>
+
+        <ul class="store-features__list">
+                <li class="store-features__list-item">
+                    <div class="store-features__list-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <path id="account-a" d="M18,15 C18,13.346 16.654,12 15,12 L9,12 C7.346,12 6,13.346 6,15 L6,22 L8,22 L8,15 C8,14.448 8.449,14 9,14 L15,14 C15.551,14 16,14.448 16,15 L16,22 L18,22 L18,15 Z M12,2 C9.791,2 8,3.791 8,6 C8,8.209 9.791,10 12,10 C14.209,10 16,8.209 16,6 C16,3.791 14.209,2 12,2 Z M12,4 C13.103,4 14,4.897 14,6 C14,7.103 13.103,8 12,8 C10.897,8 10,7.103 10,6 C10,4.897 10.897,4 12,4 Z"></path>
+  </defs>
+  <use fill="#13B5EA" xlink:href="#account-a"></use>
+</svg>
+
+                    </div>
+                    <div class="store-features__list-item-description">
+                       <center> Verified Guests</center>
+                       
+						Connect with pre-verified Guests
+                    </div>
+                </li>
+                <li class="store-features__list-item">
+                    <div class="store-features__list-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <path id="account-a" d="M18,15 C18,13.346 16.654,12 15,12 L9,12 C7.346,12 6,13.346 6,15 L6,22 L8,22 L8,15 C8,14.448 8.449,14 9,14 L15,14 C15.551,14 16,14.448 16,15 L16,22 L18,22 L18,15 Z M12,2 C9.791,2 8,3.791 8,6 C8,8.209 9.791,10 12,10 C14.209,10 16,8.209 16,6 C16,3.791 14.209,2 12,2 Z M12,4 C13.103,4 14,4.897 14,6 C14,7.103 13.103,8 12,8 C10.897,8 10,7.103 10,6 C10,4.897 10.897,4 12,4 Z"></path>
+  </defs>
+  <use fill="#13B5EA" xlink:href="#account-a"></use>
+</svg>
+
+                    </div>
+                    <div class="store-features__list-item-description">
+                      <center>Smooth Payments</center> 
+					Enjoy getting paid on time every month
+                    </div>
+                </li>
+                <li class="store-features__list-item">
+                    <div class="store-features__list-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <path id="account-a" d="M18,15 C18,13.346 16.654,12 15,12 L9,12 C7.346,12 6,13.346 6,15 L6,22 L8,22 L8,15 C8,14.448 8.449,14 9,14 L15,14 C15.551,14 16,14.448 16,15 L16,22 L18,22 L18,15 Z M12,2 C9.791,2 8,3.791 8,6 C8,8.209 9.791,10 12,10 C14.209,10 16,8.209 16,6 C16,3.791 14.209,2 12,2 Z M12,4 C13.103,4 14,4.897 14,6 C14,7.103 13.103,8 12,8 C10.897,8 10,7.103 10,6 C10,4.897 10.897,4 12,4 Z"></path>
+  </defs>
+  <use fill="#13B5EA" xlink:href="#account-a"></use>
+</svg>
+
+                    </div>
+                    <div class="store-features__list-item-description">
+                     <center>24hr Support</center> 
+				Chat with our support team anytime
+                    </div>
+                </li>
+                <li class="store-features__list-item">
+                    <div class="store-features__list-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path fill="#13B5EA" d="M10.9999,7 L10.9999,12 L10.9999,13 L10.9999,14 L15.9999,14 L15.9999,12 L12.9999,12 L12.9999,7 L10.9999,7 Z M21.7889,14.044 C21.3969,15.935 20.4679,17.674 19.0709,19.071 L19.0679,19.068 C17.2569,20.878 14.7569,22 11.9999,22 C6.8229,22 2.5539,18.046 2.0509,13 L-0.0001,13 L2.9999,10 L5.9999,13 L4.0689,13 C4.5639,16.94 7.9279,20 11.9999,20 C15.8529,20 19.0779,17.262 19.8319,13.629 C19.8329,13.623 19.8359,13.616 19.8369,13.609 C19.8829,13.385 19.9149,13.157 19.9419,12.927 C19.9459,12.888 19.9549,12.85 19.9589,12.811 C19.9859,12.544 19.9999,12.273 19.9999,12 C19.9999,11.727 19.9859,11.456 19.9589,11.189 C19.9549,11.15 19.9459,11.112 19.9419,11.073 C19.9149,10.843 19.8829,10.615 19.8369,10.391 C19.8359,10.384 19.8329,10.377 19.8319,10.371 C19.1869,7.265 16.7349,4.813 13.6289,4.168 C13.6229,4.167 13.6159,4.164 13.6089,4.163 C13.3849,4.117 13.1569,4.085 12.9269,4.058 C12.8879,4.054 12.8499,4.045 12.8109,4.041 C12.5439,4.014 12.2729,4 11.9999,4 C9.8629,4 7.8539,4.832 6.3429,6.343 L4.9289,4.929 C6.8179,3.04 9.3289,2 11.9999,2 C12.3409,2 12.6779,2.018 13.0129,2.051 C13.0659,2.057 13.1169,2.068 13.1699,2.074 C13.4529,2.107 13.7329,2.147 14.0099,2.203 C14.0209,2.206 14.0329,2.209 14.0439,2.211 C15.9349,2.603 17.6739,3.532 19.0709,4.929 C20.4679,6.326 21.3969,8.065 21.7889,9.956 C21.7909,9.967 21.7939,9.979 21.7969,9.99 C21.8529,10.267 21.8929,10.547 21.9259,10.83 C21.9319,10.883 21.9429,10.934 21.9489,10.987 C21.9819,11.322 21.9999,11.659 21.9999,12 C21.9999,12.341 21.9819,12.678 21.9489,13.013 C21.9429,13.066 21.9319,13.117 21.9259,13.17 C21.8929,13.453 21.8529,13.733 21.7969,14.01 C21.7939,14.021 21.7909,14.033 21.7889,14.044 Z"></path>
+</svg>
+
+                    </div>
+                    <div class="store-features__list-item-description">
+                       <center>Guest Insurance</center>
+						Feel safe knowing your Guest is insured
+                    </div>
+                </li>
+               
+                
+        </ul>
+    </div>
+
+      <footer th:replace="fragments/footersection"></footer>
+    
+
+		
+	<script th:replace="fragments/scripts_com :: scripts"></script>
+	
+	
+	<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
+
+
+<script type="text/javascript" th:inline="javascript">
+var rte;
+var thumb;
+var myWidget = cloudinary.createUploadWidget({
+  cloudName: 'moversng', 
+  uploadPreset: 'todounsigned',
+  sources: [
+      "local",
+      "url",
+      "camera"
+  ],
+  multiple: false,
+  form: '.upload_multiple_images_holder', 
+  showAdvanced_options: false}, 
+  (error, result) => { 
+    if (!error && result && result.event === "success") { 
+      console.log('Done! Here is the image info: ', result.info); 
+      rte=result.info.secure_url;
+      thumb=result.info.thumbnail_url;
+      document.getElementById("spaceCredentials").value = rte;
+      document.getElementById("spaceCredentials").style.backgroundImage = "url("+thumb+")";
+      
+      thumb =/*[[${personalInfo.imagethumb}]]*/ thumb;
+      /*<![CDATA[*/
+
+      /*[[${personalInfo.imagethumb}]]*/ = thumb ;
+	     
+
+  /*]]>*/
+    }
+  }
+)
+
+
+
+
+document.getElementById("valid_id_widget").addEventListener("click", function(event){
+	 event.preventDefault();
+    myWidget.open();
+  }, false);
+  
+
+  
+  
+  
+</script>
+</body>
+
+</html>

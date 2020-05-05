@@ -60,6 +60,17 @@ public class pageController {
 	}
 	
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/faqs")
+	public String index(Model model, HttpServletRequest request) {
+		
+		
+		
+		return "faqs";
+	}
+	
+	
+	
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/storage/select-size")
 	public String selectsize(Model model, @RequestParam(required = false, defaultValue = "0") Integer unitsize, HttpServletRequest request) {
 		

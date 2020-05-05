@@ -10,10 +10,14 @@ $(document).ready(function() {
           var file = e.target;
           $("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove\">Remove image</span>" +
-            "</span>").insertAfter("#image");
+            "<br/><span class=\"remove\">Remove </span>" +
+            "</span>").insertAfter("#files");
           $(".remove").click(function(){
+        	 
+        	
+        	  console.log($(this).parent(".pip"));
             $(this).parent(".pip").remove();
+            files[i].splice(i, 1);
           });
           
           // Old code here

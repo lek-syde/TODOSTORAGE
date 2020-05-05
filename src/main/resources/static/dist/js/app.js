@@ -1,7 +1,7 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
-    gtmEventTracking.init();
+
     accordion.init();
     detectExperienceEditor.init();
     storeLocationsList.init();
@@ -2584,124 +2584,7 @@ var subMenus = function () {
 }();
 'use strict';
 
-var gtmEventTracking = function () {
 
-    var selectors = {
-        getAQuoteHeaderBtnClass: '.global-ctas__btn',
-        homepageHeroSearchClass: '.home-quote-banner__input',
-        getAQuoteFooterBtnClass: '.cta-panel__action-btn',
-        locationSearchClass: '.storage-quote__search-box',
-        exploreAllLocationsClass: '.storage-quote__content-link-item',
-        selectStoreBtnClass: '.storage-quote__info-btn',
-        selectSizeContinueBtnClass: '.size-selector__submit-cta',
-        selectedUnitSizeClass: '.size-selector__size-value',
-        reserveQuoteBtnClass: '.storage-quote-price__cta-reserve-btn',
-        stickyFooterReserveBtnClass: '.sticky-convert-quote__banner-btn-alt',
-        orderQuoteBtnClass: '.storage-quote-price__cta-confirm-btn',
-        stickyFooterOrderBtnClass: '.sticky-convert-quote__banner-btn',
-        saveQuoteLinkClass: '.storage-quote-price__ctas-text-link',
-        extrasPadlockBtnClass: '.storage-quote-price__extras-padlock',
-        extrasInsuranceBtnClass: '.storage-quote-price__extras-insurance',
-        storageQuotePanelClass: '.storage-quote-price'
-    };
-
-    var additionalKey = null;
-    var additionalValue = null;
-    var quotesGeneratedCount = sessionStorage.getItem('quotesGenerated');
-
-    if (!quotesGeneratedCount) {
-        sessionStorage.setItem('quotesGenerated', 0);
-    }
-
-    var getQueryStringParams = function getQueryStringParams(url) {
-        var params = {};
-        var parser = document.createElement('a');
-        parser.href = url;
-        var query = parser.search.substring(1);
-        var vars = query.split('&');
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split('=');
-            params[pair[0]] = decodeURIComponent(pair[1]);
-        }
-        return params;
-    };
-
-    var dataPush = function dataPush(eventName, additionalKey, additionalValue) {
-        window.dataLayer = window.dataLayer || [];
-        if (additionalKey) {
-            var unitSize = getSelectedSize();
-            window.dataLayer.push({
-                'event': eventName,
-                'storageSize': unitSize
-            });
-        } else {
-            window.dataLayer.push({ 'event': eventName });
-        }
-    };
-
-    var gtmPushEventListener = function gtmPushEventListener(selector, eventName, additionalKey, additionalValue) {
-        var selectorEl = document.querySelector(selector);
-        if (document.querySelector(selector)) {
-            document.querySelector(selector).addEventListener('click', function () {
-                dataPush(eventName, additionalKey, additionalValue);
-            });
-        }
-    };
-
-    var getSelectedSize = function getSelectedSize() {
-        var selectorEl = document.querySelector(selectors.selectSizeContinueBtnClass);
-        var selectedSizeUrl = selectorEl !== null ? selectorEl.getAttribute('href') : null;
-        if (selectedSizeUrl) {
-            var urlQueryStringObj = getQueryStringParams(selectedSizeUrl);
-            var unitSize = urlQueryStringObj.unitsize;
-            return unitSize;
-        }
-    };
-
-    var attachEvents = function attachEvents() {
-        //Main pages
-        gtmPushEventListener(selectors.getAQuoteHeaderBtnClass, 'GetAQuoteHeader');
-        gtmPushEventListener(selectors.homepageHeroSearchClass, 'GetAQuoteMain');
-        gtmPushEventListener(selectors.getAQuoteFooterBtnClass, 'GetAQuoteFooter');
-
-        //Funnel Step 1 - Location
-        //gtmPushEventListener(selectors.locationSearchClass, 'StoreSearch');
-        gtmPushEventListener(selectors.exploreAllLocationsClass, 'StoreExplore');
-        gtmPushEventListener(selectors.selectStoreBtnClass, 'StoreSelect');
-
-        //Funnel Step 3 - Details
-        //Details Entered
-        //if (document.querySelector(selectors.storageQuotePanelClass)) {
-        //    sessionStorage.setItem('quotesGenerated', quotesGeneratedCount++)
-        //    quotesGeneratedCount === 1 ? dataPush('QuoteGenerated') : '';
-        //}
-
-        //Funnel Step 4 - Quote
-        //Reserve(body of page)
-        gtmPushEventListener(selectors.reserveQuoteBtnClass, 'ReserveClickMain');
-        //Reserve(footer)
-        gtmPushEventListener(selectors.stickyFooterReserveBtnClass, 'ReserveClickFooter');
-        //Order now (body of page)
-        gtmPushEventListener(selectors.orderQuoteBtnClass, 'OrderClickMain');
-        //Order now (footer)
-        gtmPushEventListener(selectors.stickyFooterOrderBtnClass, 'OrderClickFooter');
-        //Save Quote
-        gtmPushEventListener(selectors.saveQuoteLinkClass, 'QuoteSaved');
-        //Clicked Insurance
-        gtmPushEventListener(selectors.extrasInsuranceBtnClass, 'InsuranceClicked');
-        //Clicked Padlock
-        gtmPushEventListener(selectors.extrasPadlockBtnClass, 'PadlockClick');
-    };
-
-    var init = function init() {
-        return attachEvents();
-    };
-
-    return {
-        init: init
-    };
-}();
-'use strict';
 
 var contentImageGallery = function () {
 

@@ -3,7 +3,9 @@ package com.example.demo.models;
 import java.io.Serializable;
 import java.util.Base64;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,14 +24,16 @@ public class BillingInfo implements Serializable {
 	private String state;
 	
 	
-	@NotBlank
+
+	private String otherDetails;
+	
+	@NotNull
+    @Min(18)
 	private int spaceSize;
 	
-	MultipartFile spaceCred;
 	
-	
-	private byte[] imageContent;
-	
+	@NotBlank
+	private String spaceCredentials;
 	
 	
 
@@ -66,32 +70,29 @@ public class BillingInfo implements Serializable {
 	}
 
 
-	public byte[] getImageContent() {
-		return imageContent;
-	}
-
-	public String getImageBase64() {
-		return Base64.getEncoder().encodeToString(imageContent);
-	}
 
 	
 
-	public MultipartFile getSpaceCred() {
-		return spaceCred;
+	public String getOtherDetails() {
+		return otherDetails;
 	}
 
-	public void setSpaceCred(MultipartFile spaceCred) {
-		try {
-			this.imageContent = spaceCred.getBytes();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
+	public void setOtherDetails(String otherDetails) {
+		this.otherDetails = otherDetails;
 	}
 
-	public void setImageContent(byte[] imageContent) {
-		this.imageContent = imageContent;
+	public String getSpaceCredentials() {
+		return spaceCredentials;
 	}
+
+	public void setSpaceCredentials(String spaceCredentials) {
+		this.spaceCredentials = spaceCredentials;
+	}
+
+
+	
+
+
 	
 	
 	
