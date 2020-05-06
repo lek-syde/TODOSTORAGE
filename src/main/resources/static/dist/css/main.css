@@ -11098,7 +11098,8 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
 }
 
 .store-features ul svg {
-    margin-right: 16px
+    margin-right: 16px;
+        fill: #4CAF50 ;
 }
 
 .store-features__list {
