@@ -16058,7 +16058,6 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
         animation-timing-function: cubic-bezier(.175, .885, .32, 1)
     }
 }
-
 .zoomInRight {
     -webkit-animation-name: zoomInRight;
     animation-name: zoomInRight
@@ -16133,7 +16132,7 @@ content: url('https://res.cloudinary.com/moversng/image/upload/v1586740432/TODO%
 
 .zoomOut {
     -webkit-animation-name: zoomOut;
-    animation-name: zoomOut
+    animation-name: zoomOut;
 }
 
 @-webkit-keyframes zoomOutDown {
@@ -16825,4 +16824,9 @@ body.body--no-scroll {
 
 .icon-gdpr-tick:before {
     content: "\e902"
+}
+
+.se{
+	
+	ned
 }
