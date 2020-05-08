@@ -2,21 +2,15 @@ package com.example.demo.handlers;
 
 import java.io.IOException;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import com.example.demo.models.BillingInfo;
-import com.example.demo.models.DBFile;
 import com.example.demo.models.PersonalInfo;
 import com.example.demo.models.RegisterModel;
 import com.example.demo.models.StoragePicture;
+import com.todo.email.ScheduleEmailRequest;
 import com.todo.repository.CommunityStorageApplicationRepo;
 import com.todo.restmodels.CommunitySpaces;
 
@@ -25,6 +19,9 @@ public class RegisterHandler {
 	
 	@Autowired
 	CommunityStorageApplicationRepo communityrepo;
+	
+	@Autowired
+	EmailService emailservice;
 
 	public RegisterModel init() {
 		return new RegisterModel();
@@ -66,8 +63,29 @@ public class RegisterHandler {
 		comspace.setImageurl4(registerModel.getStoragepicture().getImageurl4());
 		comspace.setImageurl5(registerModel.getStoragepicture().getImageurl5());
 		
+		
+		 
+        ScheduleEmailRequest welcomemail= new ScheduleEmailRequest();
+        welcomemail.setEmail(registerModel.getPersonalInfo().getEmail());
+        welcomemail.setSubject("Application Received");
+        welcomemail.setName(registerModel.getPersonalInfo().getFullname());
+        welcomemail.setTemplate("welcome.html");
+		   
+		   emailservice.scheduleEmail(welcomemail);
+		   
+		   
+		   
+		   
+		
 		communityrepo.save(comspace);
 		
+		ScheduleEmailRequest progressMail= new ScheduleEmailRequest();
+		   progressMail.setEmail(registerModel.getPersonalInfo().getEmail());
+		   progressMail.setSubject("Application update");
+		   progressMail.setName(registerModel.getPersonalInfo().getFullname());
+		   progressMail.setTemplate("progress.html");
+		   
+		   emailservice.scheduleEmail(progressMail);
 		
 		return transitionValue;
 	}
