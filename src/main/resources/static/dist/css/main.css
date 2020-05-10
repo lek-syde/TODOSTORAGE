@@ -2189,12 +2189,23 @@ border-bottom-right-radius: 25px;
 
 .global-nav__item-link {
     display: block;
-    color: #ffffff;
+    color: #5e6172;
     text-decoration: none;
     position: relative;
     padding: 22px 0
 }
 
+.textwhite{
+	 color: #ffffff !important;
+}
+
+.global-nav__item-link-main {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    padding: 22px 0
+}
 @media (min-width:768px) {
     .global-nav__item-link {
         padding: 30px 0
