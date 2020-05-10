@@ -1904,6 +1904,11 @@ border-bottom-right-radius: 25px;
     .global-header:hover {
 	background-color: #fff;
 	
+	
+	}
+
+.global-header:hover .global-nav__item-link {
+ color: #5e6172 !important;
 }
 
 }
@@ -2184,7 +2189,7 @@ border-bottom-right-radius: 25px;
 
 .global-nav__item-link {
     display: block;
-    color: #2f3245;
+    color: #ffffff;
     text-decoration: none;
     position: relative;
     padding: 22px 0
