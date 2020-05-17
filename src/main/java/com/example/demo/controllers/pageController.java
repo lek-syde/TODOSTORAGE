@@ -115,6 +115,10 @@ public class pageController {
 		System.out.println("size- "+ booking.getSize());
 		 model.addAttribute("booking", booking);
 		 
+		 if(booking.getSize()==-1) {
+			 return "touch";
+		}
+		 
 		 
 		return "quote";
 	}

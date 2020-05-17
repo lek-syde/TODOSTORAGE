@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 
 <html>
@@ -5,9 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
             <meta name='robots' content='nofollow'>
         <meta name='robots' content='noindex'>
-        <title>Your Details</title>
-        <link rel="canonical" href="https://www.todoselfstorage.com/storage/your-details" />
-     <meta  name="theme-color" content="#4CAF50" />
+        <title>Todo self storage | Your Quote</title>
+        <link rel="canonical" href="https://www.todoselfstorage.com/storage/your-quote" />
+        
+        <meta  name="theme-color" content="#4CAF50" />
         <meta  data-hid="description" name="description" content="Storage at your finger tip" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta  name="twitter:image:src" content="/dist/assets/icons/ogbanner1.png" />
@@ -25,9 +30,10 @@
     <meta property="og:description" content="Storage at your finger tip"/>
     
     
-     <link rel="stylesheet" type="text/css" th:href="@{/dist/css/main.css}">
+
+ <link rel="stylesheet" type="text/css" th:href="@{/dist/css/main.css}">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,400i,500,600,700" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon/apple-touch-icon.png" />
+   <link rel="shortcut icon" type="image/x-icon" href="favicon/apple-touch-icon.png" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -48,15 +54,15 @@
 
 </head>
 <body class="process-layout">
- 
 
 
     <div class="storage-quote">
         <div class="storage-quote__header">
 
                 <div itemscope itemtype="http://schema.org/Brand" class="storage-quote__header-logo">
-                   <a href="/"><img style="margin-top: 25px" itemprop="logo" src="https://res.cloudinary.com/moversng/image/upload/v1586740232/TODO%20STORAGE/todostoragegreen_tl2gws.svg" alt="To-do self storage" class="storage-quote__header-logo-img" />
-    </a>
+                    <a href="/">
+                            <img itemprop="logo" src="https://res.cloudinary.com/moversng/image/upload/v1586740232/TODO%20STORAGE/todostoragegreen_tl2gws.svg" alt="TODO BRAND LOGO" class="storage-quote__header-logo-img" />
+                    </a>
                 </div>
             <div class="process-header">
                 <div class="storage-quote__progress-indicator">
@@ -64,124 +70,125 @@
         <li class="storage-quote__progress-list-item">
             <div class="storage-quote__progress-stage storage-quote__progress-stage--complete animated fadeIn">
                 <span class="storage-quote__progress-stage-number">1</span>
-                <img class="storage-quote__progress-stage-icon" src="https://www.accessstorage.com/-/media/images/icons/progress-indicator/tick.svg">
+                <img class="storage-quote__progress-stage-icon" src="https://res.cloudinary.com/moversng/image/upload/v1587031452/TODO%20STORAGE/check_ff2woh.svg">
             </div>
             <div class="storage-quote__progress-title storage-quote__progress-title--complete animated fadeIn">Location</div>
         </li>
         <li class="storage-quote__progress-list-item">
             <div class="storage-quote__progress-stage storage-quote__progress-stage--complete animated fadeIn">
                 <span class="storage-quote__progress-stage-number">2</span>
-                <img class="storage-quote__progress-stage-icon" src="https://www.accessstorage.com/-/media/images/icons/progress-indicator/tick.svg">
+                <img class="storage-quote__progress-stage-icon" src="https://res.cloudinary.com/moversng/image/upload/v1587031452/TODO%20STORAGE/check_ff2woh.svg">
             </div>
             <div class="storage-quote__progress-title storage-quote__progress-title--complete animated fadeIn">Size</div>
         </li>
         <li class="storage-quote__progress-list-item">
-            <div class="storage-quote__progress-stage storage-quote__progress-stage--active animated fadeIn">
+            <div class="storage-quote__progress-stage storage-quote__progress-stage--complete animated fadeIn">
                 <span class="storage-quote__progress-stage-number">3</span>
                 <img class="storage-quote__progress-stage-icon" src="https://res.cloudinary.com/moversng/image/upload/v1586939977/TODO%20STORAGE/user_hcsq2m.svg">
             </div>
-            <div class="storage-quote__progress-title storage-quote__progress-title--active animated fadeIn">Details</div>
+            <div class="storage-quote__progress-title storage-quote__progress-title--complete animated fadeIn">Details</div>
         </li>
         <li class="storage-quote__progress-list-item">
-            <div class="storage-quote__progress-stage storage-quote__progress-stage--">
+            <div class="storage-quote__progress-stage storage-quote__progress-stage--active animated fadeIn">
                 <span class="storage-quote__progress-stage-number">4</span>
                 <img class="storage-quote__progress-stage-icon" src="https://res.cloudinary.com/moversng/image/upload/v1586940123/TODO%20STORAGE/Quote_dnnmys.svg">
             </div>
-            <div class="storage-quote__progress-title storage-quote__progress-title--">Quote</div>
+            <div class="storage-quote__progress-title storage-quote__progress-title--active animated fadeIn">Quote</div>
         </li>
     </ul>
 </div>
 
             </div>
             <div class="process-header__close">
-                <a href="/" class="process-header__cancel-link">
+                 <a href="/" class="process-header__cancel-link">
    
 </a>
 
             </div>
         </div>
         <div class="process-wrapper">
-            <h1 class="page-title">Your details</h1>
-    <div class="page-introduction">
-        <p>To enable us to give you our best possible price and stay in touch on fantastic offers, we just need a few details about you and your requirements.</p>
+            
+    <div id="storage-quote-price" data-national-storage="False"
+         data-has-quotes="True">
 
+        <!-- Loading.. start-->
+<div v-show="isLoad" class="storage-quote-price__loader">
+    <div class="storage-quote-price__loader-description">
+        Please wait while we calculate your quote
     </div>
-<div class="tab-container" id="tab-container">
-  
-    <div class="tab-panel" id="tab-panel-1">
+    <div class="storage-quote-price__loader-animation">
+        <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+        <path fill="#13B5EA" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+        <animateTransform attributeName="transform"
+                          attributeType="XML"
+                          type="rotate"
+                          dur="1s"
+                          from="0 50 50"
+                          to="360 50 50"
+                          repeatCount="indefinite" />
+              </path>
+            </svg>
+    </div>
+</div>
+<!-- Loading.. end -->
+
+        <div v-show="!isLoad" v-cloak>
+
+            <div class="storage-quote-price" v-if="!showNationalStorageMessage">
+
+           
+
+         
+
+
+                <!--  Limited availability -->
+<div  class="storage-quote-price__limited-availability">
+
+    <div class="storage-quote-price__limited-availability-content">
+        <div class="storage-quote-price__limited-availability-title h1"> <h1>Thanks [[${booking.firstname}]],  <br/> we would be in touch</h1> 
         
-<form  action="/storage/your-details" class="access-form provide-details" th:object="${booking}"  method="post">   
-
-  
-    <!-- First Tab Panel-->
-    <fieldset class="provide-details__form">
-
-        <div class="provide-details__field-wrapper">
-			<div class="provide-details__field">
-                <div class="field-error field-error--hide ">
-                    Please enter your first name
-                </div>
-
-                <label class="provide-details__form-label" for="FirstName">First name</label>
-
-                <input class="provide-details__form-input" id="firstname" name="firstname"  th:value="*{firstname}" maxlength="30"  pattern="^[a-zA-Z]+(([&#39;,. -][a-zA-Z ])?[a-zA-Z]*)*$" required="true" title="Please enter your first name" type="text"  />
-
-            </div>
-            <div class="provide-details__field">
-
-                <div class="field-error field-error--hide">
-                    Please enter your last name
-                </div>
-
-                <label class="provide-details__form-label" for="LastName">Last name</label>
-
-                <input class="provide-details__form-input" id="LastName"  th:field="*{lastname}" maxlength="30" name="LastName" pattern="^[a-zA-Z]+(([&#39;,. -][a-zA-Z ])?[a-zA-Z]*)*$" required="true" title="Please enter your last name" type="text" value="" />
-
-            </div>
-            <div class="provide-details__field">
-
-                <div class="field-error field-error--hide">
-                    Please enter a valid contact number
-                </div>
-
-                <label class="provide-details__form-label" for="Phone">Contact number</label>
-
-                <input class="provide-details__form-input" id="Phone" maxlength="30" th:field="*{phone}" name="Phone" pattern="^[0][1-9]\d{9}$|^[1-9]\d{9}$" required="true" title="Please enter a valid contact number" type="tel" value="" />
-
-            </div>
-            <div class="provide-details__field">
-
-                <div class="field-error field-error--hide">
-                    Please enter your email address
-                </div>
-
-                <label class="provide-details__form-label" for="Email">Email address</label>
-
-                <input class="provide-details__form-input" id="Email" name="Email" th:field="*{email}" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required="true" title="Please enter your email address" type="email" value="" />
-            </div>
+        Our storage advisor would reach out to you ASAP!</div>
+       
+        <div id="storage-quote-ref" class="storage-quote-price__limited-availability-reference" >
+          <h1>Can't wait ? <br/>Call 090.7916.8888</h1>
         </div>
-
-
-
-        <p class="provide-details__disclaimer">Your personal details won’t be shared outside of our walls to any third parties, we only take this to give you our best possible price and stay in touch on fantastic offers.</p>
-
-        <div class="provide-details__step-ctas">
-            <a th:href="@{'/book?StoreId=' + ${booking.storeid}}" class="provide-details__previous-cta">
-                <span class="provide-details__previous-cta-text">Previous</span>
-            </a>
-            <button type="submit" class="provide-details__submit-cta access-form__submit">
-                <span class="provide-details__submit-cta-text">Submit details</span>
-            </button>
-        </div>
-
-    </fieldset>
-    <!-- First Tab Panel End-->
-</form>
     </div>
 
-
+    <!-- Upgrade option -->
+    <div v-show="showUpgradeOption" class="storage-quote-price__upgrade-option">
+        <div id="limited-availability-upgrade-message" data-limited-availability-upgrade-price="%3cp%3eAlternatively+you+can+upgrade+to+an+available+%5bUnit+Size%5d+for+%3cstrong%3e%5bWeekly+Price%5d+per+week%3c%2fstrong%3e%3c%2fp%3e"
+             data-non-standard-size-upgrade-price="%3cp%3eAlternatively+you+can+upgrade+to+an+availabile%3c%2fp%3e%0a%3cp%3e%3cstrong%3e%5bUnit+Size%5d+sq+ft+for+%5bWeekly+Price%5d%3c%2fstrong%3e%3c%2fp%3e">
+            <div class="storage-quote-price__upgrade-standard-text" id="limited-availability-upgrade-price" v-show="showLimitedAvailability && !showNonStandardSizeQuote" v-html="standardUpgradeText"></div>
+            <div class="storage-quote-price__upgrade-non-standard-text" id="non-standard-size-upgrade-price" v-show="showLimitedAvailability && showNonStandardSizeQuote" v-html="nonStandardUpgradeText"></div>
+        </div>
+        <div class="storage-quote-price__limited-availability-btn">
+            <a href="#" v-on:click="upgradeQuote" class="storage-quote-price__upgrade-btn">Upgrade now <svg width="24" height="24" viewBox="0 0 24 24"><polygon fill="#13b5ea" points="13 7 11.586 8.414 14.172 11 6 11 6 13 14.172 13 11.586 15.586 13 17 17.999 11.999"></polygon></svg></a>
+        </div>
+    </div>
+    <!-- Upgrade option end -->
 
 </div>
+<!-- Limited availability End -->
+
+
+             
+
+            </div>
+
+
+<!-- national storage message end -->
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
 
         </div>
     </div>
@@ -240,15 +247,15 @@
 
     </div>
 
-	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAdKb-HhkmlJXB4LNvjkN2P7Saz4vN8tU&amp;libraries=places,geometry"></script>
-  
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGL6adJPcrDKkwmSLE3SZPcXeblOVV8wQ&amp;libraries=places,geometry&amp;region=GB"></script>
     <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/snazzy-info-window@1.1.1/dist/snazzy-info-window.min.js'></script>
     <script th:src="@{/dist/js/app.js}"></script>
 
-   
-
-    
+<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: 'becf5535-076f-4d58-a485-92fe0f6574f2', f: true }); done = true; } }; })();</script>
+  
+  
 </body>
 </html>
