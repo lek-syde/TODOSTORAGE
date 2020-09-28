@@ -12,27 +12,27 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class WebConfig {
 
-    @Bean
-    public ServletWebServerFactory servletContainer() {
-
-        TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
-
-            @Override
-            protected void postProcessContext(Context context) {
-
-                SecurityConstraint securityConstraint = new SecurityConstraint();
-                securityConstraint.setUserConstraint("CONFIDENTIAL");
-
-                SecurityCollection collection = new SecurityCollection();
-                collection.addPattern("/*");
-                securityConstraint.addCollection(collection);
-                context.addConstraint(securityConstraint);
-            }
-        };
-
-        tomcat.addAdditionalTomcatConnectors(redirectConnector());
-        return tomcat;
-    }
+//    @Bean
+//    public ServletWebServerFactory servletContainer() {
+//
+//        TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
+//
+//            @Override
+//            protected void postProcessContext(Context context) {
+//
+//                SecurityConstraint securityConstraint = new SecurityConstraint();
+//                securityConstraint.setUserConstraint("CONFIDENTIAL");
+//
+//                SecurityCollection collection = new SecurityCollection();
+//                collection.addPattern("/*");
+//                securityConstraint.addCollection(collection);
+//                context.addConstraint(securityConstraint);
+//            }
+//        };
+//
+//        tomcat.addAdditionalTomcatConnectors(redirectConnector());
+//        return tomcat;
+//    }
 
     private Connector redirectConnector() {
 
