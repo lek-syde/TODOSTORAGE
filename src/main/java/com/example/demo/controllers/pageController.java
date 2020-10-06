@@ -68,8 +68,15 @@ public class pageController {
 		return "faqs";
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/checklist")
+	public String checklist(Model model, HttpServletRequest request) {
+		
+		
+		
+		return "inventory-checklist";
 	
 	
+	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/storage/select-size")
 	public String selectsize(Model model, @RequestParam(required = false, defaultValue = "0") Integer unitsize, HttpServletRequest request) {
